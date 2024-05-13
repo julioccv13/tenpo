@@ -1,0 +1,19 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/006/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'Process006'
+        ds_nodash: '{{ dag_run.conf["exec_date"] if "exec_date" in dag_run.conf else ds_nodash }}'
+        ds: '{{ dag_run.conf["exec_date_ds"] if "exec_date" in dag_run.conf else ds }}'
+        bucket_name: '{{ var.value.environment }}-source-files'
+        project_id: 'tenpo-datalake-{{ var.value.environment }}'
+        host_sftp: '{{ var.value.sftp_hostname }}'
+        username_sftp: '{{ var.value.sftp_username }}'        
+        password_sftp: '{{ var.value.sftp_credentials }}'
+        project_source: '{{ var.value.project4 }}'
+        project_target: '{{ var.value.project2 }}'
+dag_args:
+  dag_id: '006_cloudrun_dag_call_south_v2'
+  schedule_interval: '30 16 * * *'

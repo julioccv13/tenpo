@@ -1,0 +1,124 @@
+version: 2
+
+models:
+  - name: last_service_bm
+    description: "Último servicio usado antes de migrar"
+    +tags: "users_allservices"
+
+  - name: clientes_tenpo
+    description: "Datos de los usuarios tenpo"
+    +tags: "users_allservices"
+
+  - name: clientes_paypal
+    description: "Datos de los usuarios paypal"
+    +tags: "users_allservices"
+
+  - name: users_allservices
+    description: "Usuarios de todos los servicios"
+    +tags: "users_allservices"
+
+  - name: demographics
+    description: "Demograficos usuarios Tenpo App"
+    columns:
+      - name: id_usuario
+        description: ID del usuario
+      - name: nombre
+        description: Nombre del usuario
+      - name: timestamp_ob
+        description: Timestamp registro
+      - name: fecha_ob
+        description: Fecha de registro
+      - name: edad
+        description: Edad
+      - name: nacionalidad
+        description: Nacionalidad
+      - name: sigla_region
+        description: Nombre de la Region en Chile
+      - name: comuna
+        description: Comuna
+      - name: state
+        description: Estado del usuario
+      - name: gender
+        description: Genero
+      - name: source
+        description: Fuente
+      - name: serv_paypal
+        description: Servicio Paypal
+      - name: services
+        description: Servicios
+      - name: actividad_bm
+        description: Actividad antes de migracion
+      - name: dispositivo
+        description: Dispositivo
+      - name: churn
+        description: Flag fuga
+      - name: tipo_actividad
+        description: Tipo de actividad
+
+  - name: users_tenpo
+    description: "Usuarios Tenpo App todos los estados"
+    columns:
+      - name: id
+        description:  ID del usuario
+      - name: email
+        description: Correo del usuario
+      - name: tributary_identifier
+        description: Rut encriptado
+      - name: phone
+        description:  Telefono de contacto
+      - name: state
+        description: Estado del usuario - pueden ver la documentacion de los states aqui https://bit.ly/user_states
+      - name: level
+        description: Nivel
+      - name: plan
+        description: si es 1 es tenpo junior, caso contrario es usuario mayor de edad
+      - name: region_code
+        description: Codigo de la region
+      - name: profession
+        description: Profesion
+      - name: nationality
+        description: Nacionalidad
+      - name: country_code
+        description: Codigo de pais
+      - name: agree_terms_conditions
+        description: Flag acepta terminos y condiciones
+      - name: is_card_active
+        description: Flag tarjeta activa
+      - name: is_tef_validated
+        description: Flag validacion identidad por TEF
+      - name: created_at
+        description: Fecha de creacion del usuario
+      - name: updated_at
+        description: Fecha de actualizacion
+      - name: date_of_birth
+        description: Fecha de nacimiento
+      - name: ob_completed_at
+        description: Fecha de registro
+      - name: first_name
+        description: Nombre
+      - name: source
+        description: Fuente
+      - name: validated
+        description: Indica el medio por el cual fue validado su identidad
+      - name: category
+        description: Indica el tipo de validacion que tuvo, si fue por equifax (B1) u onfido (C1), A1 indica que solo termino su ob ligth
+      - name: churn
+        description: indica si desinstalo o no la aplicacion
+      - name: cliente
+        description: Indica si es un cliente activo en la base de datos (post onboarding, state = 4), es decir, puede loggearse y activarse en cualquier momento
+      - name: status_onboarding
+        description: indica si completo o no su onboarding, es diferente a la columna state
+
+  - name: clientes_topups
+    description: "Datos de los usuarios de topups web"
+    +tags: "users_allservices"
+  
+  - name: onboarding_trends
+    description: "Indica la tendencia de onboardings completados por dia"
+    columns:
+    - name: fecha
+      description:  fecha de onboarding casteado a hora chilena
+    - name: onboardings
+      description:  cantidad de onboardings por dia
+
+

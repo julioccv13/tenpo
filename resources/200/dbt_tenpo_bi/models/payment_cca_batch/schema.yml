@@ -1,0 +1,11 @@
+version: 2
+
+models:
+    - name: record_detail
+      description: "Te indica el detalle de las transacciones cca batch"
+
+    - name: record_detail_out
+      description: "Lleva el registro de las transacciones cca batch fallidas"
+
+    - name: record_addendum_out
+      description: "Te indica el detalle de la razón de las transacciones fallidas"

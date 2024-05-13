@@ -1,0 +1,1 @@
+SELECT DISTINCT CAST(DATO AS INT64) AS Cuenta , DETALLE_DATO AS Tipo, ORDEN_DATO AS orden, EXECUTION_DATE FROM `${project_name}.${dataset}.D10_caratula` WHERE EXECUTION_DATE = (SELECT MAX(EXECUTION_DATE) FROM `${project_name}.${dataset}.D10_caratula`) ORDER BY ORDEN_DATO

@@ -1,0 +1,149 @@
+version: 2
+
+models:
+    - name: presupuesto_diario
+      description: "Prespupuesto diario en formato de archivos kpi"
+
+    - name: presupuesto_semanal
+      description: "Prespupuesto semanal en formato de archivos kpi"
+
+    - name: presupuesto_mensual
+      description: "Prespupuesto mensual en formato de archivos kpi"
+
+    - name: dolar
+      description: "Dolar"
+
+    - name: tenpo_app
+      description: "Transacciones líneas de negocio en la app"
+    
+    - name: topups_web
+      description: "Transacciones recargas en la web"
+    
+    - name: paypal_web
+      description: "Transacciones retiros y abonos PayPal en la web"
+    
+    - name: consolidado_economics_app_web
+      description: "Consolidado de métricas GPV, TRX y Usuarios para todas las líneas de negocios correspondientes al canal WEB y APP"
+      columns:
+      - name: linea
+        description: Linea de Negocio del KPI
+      - name: tipo_usuario
+        description: Tipo de usuario de la métrica
+      - name: gpv_clp
+        description: Valor GPV en pesos chilenos
+      - name: gpv_usd
+        description: Valor GPV en dólares
+      - name: trx
+        description: Identificador de la transacción
+      - name: usr
+        description: Identificador del usuario
+
+    - name: kpi_daily
+      description: "Detalle diario de cumplimiento del valor real v/s presupuesto por línea de negocio, canal, tipo de moneda y tipo de usuario para los KPIs de GPV, TRX y Usuarios"
+      columns:
+      - name: categoria
+        description: Tipo de KPI
+      - name: linea
+        description: Linea de Negocio del KPI
+      - name: valor_mes
+        description: Valor Real de la metrica
+      - name: presupuesto_mes
+        description: Valor Presupuestado de la metrica
+      - name: tipo_usuario
+        description: Tipo de usuario de la métrica
+      - name: moneda
+        description: Moneda de la métrica
+
+    - name: kpi_weekly
+      description: "Detalle semanal de cumplimiento del valor real v/s presupuesto por línea de negocio, canal, tipo de moneda y tipo de usuario para los KPIs de GPV, TRX y Usuarios"
+      columns:
+      - name: categoria
+        description: Tipo de KPI
+      - name: linea
+        description: Linea de Negocio del KPI
+      - name: valor_mes
+        description: Valor Real de la metrica
+      - name: presupuesto_mes
+        description: Valor Presupuestado de la metrica
+      - name: tipo_usuario
+        description: Tipo de usuario de la métrica
+      - name: moneda
+        description: Moneda de la métrica
+
+    - name: kpi_monthly
+      description: "Detalle mensual de cumplimiento del valor real v/s presupuesto por línea de negocio, canal, tipo de moneda y tipo de usuario para los KPIs de GPV, TRX y Usuarios"
+      columns:
+      - name: categoria
+        description: Tipo de KPI
+      - name: linea
+        description: Linea de Negocio del KPI
+      - name: valor_mes
+        description: Valor Real de la métrica
+      - name: presupuesto_mes
+        description: Valor Presupuestado de la metrica
+      - name: tipo_usuario
+        description: Tipo de usuario de la métrica
+      - name: moneda
+        description: Moneda de la métrica
+
+    - name: north_stars
+      description: "Cálculo de métricas claves mensuales de Tenpo App"
+      columns:
+      - name: mes
+        description: Mes de análisis
+      - name: usuarios
+        description: Cantidad de usuarios del periodo
+      - name: cliente
+        description: Cantidad de clientes del periodo
+      - name: clientes_ready
+        description: Cantidad de clientes ready del periodo
+      - name: maus
+        description: Cantidad de Monthly Active Users del periodo. Usuarios activos del mes en todos los flujos y productos. Considera saldo en bolsillo y excluye Premios y Devoluciones.
+      - name: mau_mc
+        description: Cantidad de Monthly Active Users Mastercard física o virtual del periodo
+      - name: mau_up
+        description: Cantidad de Monthly Active Users de Pago de Cuentas del periodo
+      - name: mau_tu
+        description: Cantidad de Monthly Active Users de Recargas del periodo
+      - name: mau_pp
+        description: Cantidad de Monthly Active Users de Paypal del periodo
+      - name: mau_cb
+        description: Cantidad de Monthly Active Users de remesas del periodo
+      - name: mau_p2p
+        description: Cantidad de Monthly Active Users de P2P del periodo
+      - name: mau_bs
+        description: Cantidad de Monthly Active Users de Bolsillo del periodo, considera usuarios con Saldo
+      - name: gpv
+        description: Suma total GPV de productos en mastercard, mastercard_physical, utility_payments, top_ups, paypal, y crossborder 
+      - name: trx
+        description: Transacciones únicas en mastercard, mastercard_physical, utility_payments, top_ups, paypal, y crossborder 
+      - name: tenencia_promedio
+        description: Ratio de MAUs por producto sobre el total de MAUs del periodo
+      - name: aum
+        description: Assets Under Management. Suma de aportes - rescates invertidos y no invertidos en bolsillo
+      - name: visitas_totales
+        description: Sesiones válidas o visitas totales del periodo
+      - name: visitas_prom
+        description: Sesiones válidas o visitas promedio del periodo
+      - name: visitas_totales_mau
+        description: Sesiones válidas o visitas totales de usuarios que fueron MAUs en el periodo
+      - name: visitas_prom_mau
+        description: Promedio de sesiones válidas o visitas  de usuarios que fueron MAUs en el periodo
+      - name: saldo_total
+        description: Saldo total en Tenpo al último día del mes
+      - name: saldo_promedio
+        description: Saldo promedio de usuarios con registro de saldo en Tenpo al último día del mes
+      - name: ratio_c_ready_saldo
+        description: Porcentaje de Clientes Ready con registro de Saldo, sin filtro de monto,  del total de Clientes Ready
+      - name: tarjetas_activadas
+        description: Parque de tarjetas activas en el periodo
+      - name: cuenta_physical
+        description: Parque de tarjetas físicas activas en el periodo
+      - name: cuenta_virtual
+        description: Parque de tarjetas virtuales activas en el periodo
+      - name: cuenta_clientes_tarjeta
+        description: Usuarios únicos con tarjeta activa
+    
+    - name: north_stars_daily
+      description: "Cálculo metricas a nivel diario"
+    

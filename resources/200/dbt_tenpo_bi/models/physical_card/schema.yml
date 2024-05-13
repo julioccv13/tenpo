@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: orders
+    description: "Detalle de solicitud de tarjeta física"
+    columns:
+      - name: user
+        description: Identificador del usuario
+      - name: card_order_id
+        description: Identificador de la solicitud
+      - name: card_order_status
+        description: Status de la solicitud
+      - name: fecha_creacion
+        description: Fecha de creación
+      - name: fecha_actualizacion
+        description: Fecha de actualización
+      - name: fecha_activacion
+        description: Fecha de activación de la tarjeta
+      - name: fecha_delivery
+        description: Fecha de entrega de la tarjeta
+      - name: dias_al_delivery
+        description: Días desde la creación de la solicitud a la entrega
+      - name: delivery_status_id
+        description: Identificador del status del delivery
+      - name: status_name
+        description: Nombre del status
+      - name: region
+        description: Región del usuario
+      - name: commune_name
+        description: Comuna del usuario
+      - name: cancel_reason
+        description: Razon de cancelacion
+      - name: order_attempts
+        description: Numero de intentos de solicituds de TF
+
+  - name: cancelled_orders
+    description: "Detalle de solicitudes canceladas y reprocesadas"
+    columns: 
+      - name: user
+        description: Identificador del usuario
+      - name: creacion_solicitud_cancelada
+        description: Fecha de creacion de la solicitud cancelada
+      - name: card_order_id_solicitud_cancelada
+        description: Identificador de la order cancelada
+      - name: card_order_id_solicitud_reprocesada
+        description: Identificador de la order reprocesada
+      - name: creacion_solicitud_reprocesada
+        description: Fecha de creacion de la solicitud reprocesada
+      - name: status_name
+        description: Status solicitud reprocesada
+      - name: caso
+        description: Clasificación del negocio

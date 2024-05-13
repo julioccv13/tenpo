@@ -1,0 +1,23 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: 'f05dba0d-d0d3-4d8e-8820-9eee5371f139'
+        segment_name: '20231002_remesa_invita_gana.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: '26f95400-55e3-41f8-a754-f99656360f45'
+        segment_name: '20231002_remesa_creacion_Destinatario.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+dag_args:
+  dag_id: '057_pagos_automaticos_crossborder_v3'
+  schedule_interval: '0 */4 4-8 10 *'

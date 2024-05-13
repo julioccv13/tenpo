@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: bank_accounts_per_user
+    
+  - name: bank_characterization
+  
+  - name: cca_cico_tef
+
+  - name: cico
+
+  - name: physical_cico
+
+  - name: fintoc_intent
+
+  - name: accounts_tef_added
+    description: "Indica la cantidad de contactos TEF que un usuario ingresa para hacer una transferencia bancaria"
+    columns:
+      - name: id
+        description: ID de la fila
+      - name: created_at
+        description: fecha de creacion del contacto
+      - name: updated_at
+        description: fecha de la ultima actualizacion de la fila
+      - name: user
+        description: idetificador del usuario
+      - name: user_contact_added
+        description: idetificador del usuario que agrego para hacer tef, si viene nulo es por que el usuario no ha hecho onboarding en tenpo
+      - name: tributary_identifier_contact_added	
+        description: rut ofuscado del usuario que agrego para hacer tef, si viene nulo es por que el usuario no ha hecho onboarding en tenpo
+      - name: state_conctact_added	
+        description: state del usuario que agrego para hacer tef, si viene nulo es por que el usuario no ha hecho onboarding en tenpo
+      - name: banco_contact_added	
+        description: banco del usuario que agrego para hacer tef
+      - name: account_type_contact_added	
+        description: tipo de cuenta de banco del usuario que agrego para hacer tef
+      - name: last_interacted	
+        description: ultima fecha con la que interactuo con ese usuario, seria la ultima fecha que le envio una tef
+
+      

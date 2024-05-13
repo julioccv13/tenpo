@@ -1,0 +1,17 @@
+version: 2
+
+models:
+    - name: users_info
+      description: "Información de los usuarios paypal con campañas y desuscritos"
+
+    - name: data_users_info
+      description: "Datos básicos para hacer cruces de información de los usuarios paypal"
+
+    - name: transacciones_paypal
+      description: "Informaión de las transacciones de paypal con algunos datos económios y proyecciones"
+
+    - name: comercios_tenpo_paypal
+      description: "Comercios donde más se compraron por parte de los usuarios de tenpo usando paypal como medio de pago"
+    
+    - name: rut_correo
+      description: "Combinación de rut correo y id cuenta para cruces"

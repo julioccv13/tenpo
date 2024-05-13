@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: campana_rf
+    description: "RF de usuarios recargafacil que no estsan en tenpo"
+

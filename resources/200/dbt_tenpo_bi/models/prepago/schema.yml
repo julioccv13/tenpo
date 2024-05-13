@@ -1,0 +1,106 @@
+version: 2
+
+models:
+  - name: daily_activation_ratio
+    description: "Cuenta general de tarjetas activas, físicas o virtuales por día"
+    columns:
+      - name: fecha
+        description: Fecha de análisis
+      - name: tarjetas_activadas
+        description: Número de tarjetas activas
+      - name: cuenta_clientes_tarjeta
+        description: Cantidad de clientes con tarjeta activa
+      - name: cuenta_physical
+        description: Cantidad de clientes con tarjeta física activa
+      - name: cuenta_virtual
+        description: Cantidad de clientes con tarjeta virtual activa
+      - name: cuenta_compras_exitosas
+        description: Cantidad de compras exitosas
+
+  - name: monthly_activation_ratio
+    description: "Cuenta general de tarjetas activas, físicas o virtuales por mes"
+    columns:
+      - name: mes
+        description: Mes de análisis
+      - name: tarjetas_activadas
+        description: Número de tarjetas activas
+      - name: cuenta_clientes_tarjeta
+        description: Cantidad de clientes con tarjeta activa
+      - name: cuenta_physical
+        description: Cantidad de clientes con tarjeta física activa
+      - name: cuenta_virtual
+        description: Cantidad de clientes con tarjeta virtual activa
+      - name: cuenta_compras_exitosas
+        description: Cantidad de compras exitosas
+
+  - name: weekly_activation_ratio
+    description: "Cuenta general de tarjetas activas, físicas o virtuales por semana"
+    columns:
+      - name: semana
+        description: Semana de análisis
+      - name: tarjetas_activadas
+        description: Número de tarjetas activas
+      - name: cuenta_clientes_tarjeta
+        description: Cantidad de clientes con tarjeta activa
+      - name: cuenta_physical
+        description: Cantidad de clientes con tarjeta física activa
+      - name: cuenta_virtual
+        description: Cantidad de clientes con tarjeta virtual activa
+      - name: cuenta_compras_exitosas
+        description: Cantidad de compras exitosas
+
+  - name: time_between_cashins
+    description: "Tiempo entre cashins en horas por usuario por día. Si el usuario no ha registrado otro cashin se arrastra la última diferencia en horas.  Si un usuario hace más de un Cashin el mismo día se calcula el promedio de las horas entre cashins de ese día"
+    columns:
+      - name: fecha
+        description: Fecha de análisis
+      - name: user
+        description: Identificador del usuario
+      - name: dif_hrs_prom_dia
+        description: Diferencia de horas promedio entre cashins del día. Si el usuario no ha registrado otro cashin se arrastra la última diferencia promedio del día en horas.
+
+  - name: trx_between_cashins
+    description: "Cálculo del total de transacciones (Excluye cashin y cashout) entre dos cargas por Cashin a nivel de usuario y se registra una vez que se hace una nueva carga. En días en que el usuario no realiza un Cashin, no aparece el registro de ese usuario, ese día"
+    columns:
+      - name: user
+        description: Identificador del usuario
+      - name: dt_trx_chile
+        description: Datetime del cashin
+      - name: linea
+        description: Linea de la transacción
+      - name: trx_id
+        description: Identificador de la transacción
+      - name: tipo_trx
+        description: Tipo de transacción
+      - name: fecha_ult_cashin
+        description: Datetime último cashin
+      - name: trx_previas
+        description: Cuenta de transacciones entre Cashin actual y Cashin anterior
+
+  - name: notifications_history
+    description: "Detalle de transacciones/compras aprobadas y no aprobadas"
+    columns:
+      - name: id
+        description: Identificador de la transacción
+      - name: resolucion_tx
+        description: Resolución de la transacción
+      - name: descripcion_sia
+        description: Descripción
+      - name: f_aprobada
+        description: Boolean que indica si la transacción fue aprobada o no
+      - name: trx_timestamp
+        description: Timestamp de la transacción
+      - name: id_cuenta
+        description: Identificador de la cuenta del usuario
+      - name: tipo_tx
+        description: Tipo de transacción
+      - name: origen_tx
+        description: Origen de la transacción
+      - name: user
+        description: Identificador del usuario
+      - name: monto
+        description: Monto de la transacción
+      - name: merchant_name
+        description: Nombre del comercio
+      - name: merchant_code
+        description: Código del comercio

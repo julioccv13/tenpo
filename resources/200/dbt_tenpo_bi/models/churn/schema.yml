@@ -1,0 +1,165 @@
+version: 2
+
+models:
+  - name: last_churn
+    description: "Detalle de último cálculo de fuga a nivel de usuario"
+    columns:
+      - name: Fecha_Fin_Analisis_DT
+        description: Fecha de fin de análisis
+      - name: user
+        description: Identificador del usuario
+      - name: state
+        description: Estado final a fin de periodo, puede ser 'churneado', 'cuenta_cerrada' o 'activo'
+      - name: last_state
+        description: Estado final del periodo anterior, puede ser 'churneado', 'cuenta_cerrada' , 'activo' u 'onboarding'
+      - name: cierre_involuntario
+        description: Booleano que indica si el cierre de la cuenta fue por inactividad (involuntario) o no
+      - name: churn
+        description: Booleano que indica la fuga (es o no Cliente Ready)
+      - name: cliente
+        description: Booleano que indica la fuga dura (es o no Cliente)
+      - name: cierre_cuenta
+        description: Booleano que indica si la fuga fue por cierre de cuenta
+      - name: churn_voluntario
+        description: Booleano que indica si la fuga fue voluntaria, podría ser por desinstalación o cierre de cuenta voluntario
+    # tests:
+    # - dbt_utils.recency:
+    #     datepart: day
+    #     field: Fecha_Fin_Analisis_DT
+    #     interval: 2
+    
+  - name: daily_churn
+    description: "Detalle de cálculo de fuga a nivel de usuario por día"
+    columns:
+      - name: Fecha_Fin_Analisis_DT
+        description: Fecha de fin de análisis
+      - name: user
+        description: Identificador del usuario
+      - name: state
+        description: Estado final a fin de periodo, puede ser 'churneado', 'cuenta_cerrada' o 'activo'
+      - name: last_state
+        description: Estado final del periodo anterior, puede ser 'churneado', 'cuenta_cerrada' , 'activo' u 'onboarding'
+      - name: cierre_involuntario
+        description: Booleano que indica si el cierre de la cuenta fue por inactividad (involuntario) o no
+      - name: churn
+        description: Booleano que indica la fuga (es o no Cliente Ready)
+      - name: cliente
+        description: Booleano que indica la fuga dura (es o no Cliente)
+      - name: cierre_cuenta
+        description: Booleano que indica si la fuga fue por cierre de cuenta
+      - name: churn_voluntario
+        description: Booleano que indica si la fuga fue voluntaria, podría ser por desinstalación o cierre de cuenta voluntario
+  
+  
+  - name: churn_daily_summary
+    description:  "Resumen de cantidades de usuarios por estado de churn por día"
+    columns:
+      - name: Fecha_Fin_Analisis_DT
+        description: Fecha de fin de análisis
+      - name: usuarios
+        description: Cantidad de registros exitosos en el periodo
+      - name: cliente
+        description: Cantidad de clientes en el periodo, usuarios sin cierre de cuenta, ya sea voluntaria o involuntaria
+      - name: clientes_ready
+        description: Cantidad de clientes ready en el periodo, usuarios sin cierre de cuenta, ya sea voluntaria o involuntaria ni desinstalación como último evento del periodo
+      - name: cuentas_cerradas
+        description: Cantidad de usuarios que han cerrado cuenta
+      - name: churn_periodo
+        description: Cantidad de usuarios con fuga en el periodo
+      - name: ob_periodo
+        description: Cantidad de usuarios con registro exitoso en el periodo
+      - name: cierres_cuenta_periodo
+        description: Cantidad de usuarios con cierre de cuenta en el periodo
+      - name: churn_periodo_voluntario
+        description:  Cantidad de usuarios con fuga voluntaria en el periodo
+      - name: churn_periodo_involuntario
+        description: Cantidad de usuarios con fuga involuntaria en el periodo
+      - name: retorno_periodo_voluntario
+        description: Cantidad de usuarios que retornan en el periodo (cuya fuga había sido voluntaria)
+      - name: retorno_periodo_involuntario
+        description: Cantidad de usuarios que retornan en el periodo (cuya fuga había sido involuntaria)
+
+  - name: churn_weekly_summary
+    description: "Resumen de cantidades de usuarios por estado de churn por semana"
+    columns:
+      - name: periodo
+        description: Fecha de análisis truncada a la semana
+      - name: Fecha_Inicio_Analisis_DT
+        description: Fecha de inicio de análisis
+      - name: Fecha_Fin_Analisis_DT
+        description: Fecha de fin de análisis
+      - name: dimension
+        description: dimensión del análisis, puede ser global de usuarios, usuarios con actividad y usuarios sin actividad  
+      - name: usuarios
+        description: Cantidad de registros exitosos en el periodo
+      - name: cliente
+        description: Cantidad de clientes en el periodo, usuarios sin cierre de cuenta, ya sea voluntaria o involuntaria
+      - name: clientes_ready
+        description: Cantidad de clientes ready en el periodo, usuarios sin cierre de cuenta, ya sea voluntaria o involuntaria ni desinstalación como último evento del periodo
+      - name: cuentas_cerradas
+        description: Cantidad de usuarios que han cerrado cuenta
+      - name: churn_periodo
+        description: Cantidad de usuarios con fuga en el periodo
+      - name: ob_periodo
+        description: Cantidad de usuarios con registro exitoso en el periodo
+      - name: cierres_cuenta_periodo
+        description: Cantidad de usuarios con cierre de cuenta en el periodo
+      - name: churn_periodo_voluntario
+        description:  Cantidad de usuarios con fuga voluntaria en el periodo
+      - name: churn_periodo_involuntario
+        description: Cantidad de usuarios con fuga involuntaria en el periodo
+      - name: retorno_periodo_voluntario
+        description: Cantidad de usuarios que retornan en el periodo (cuya fuga había sido voluntaria)
+      - name: retorno_periodo_involuntario
+        description: Cantidad de usuarios que retornan en el periodo (cuya fuga había sido involuntaria)
+      - name: churn_ready
+        description: Tasa de churn de clientes ready
+      - name: churn_ready_voluntario
+        description: Tasa de churn de clientes ready, sólo considera fuga por desinstación o cierre voluntario
+      - name: churn_clientes
+        description: Tasa de churn de clientes
+      - name: churn_clientes_voluntario
+        description: Tasa de churn de clientes, sólo considera fuga por cierre voluntario
+
+  - name: churn_monthly_summary
+    description: "Resumen de cantidades de usuarios por estado de churn por mes"
+    columns:
+      - name: periodo
+        description: Fecha de análisis truncada al mes
+      - name: Fecha_Inicio_Analisis_DT
+        description: Fecha de inicio de análisis
+      - name: Fecha_Fin_Analisis_DT
+        description: Fecha de fin de análisis
+      - name: dimension
+        description: dimensión del análisis, puede ser global de usuarios, usuarios con actividad y usuarios sin actividad  
+      - name: usuarios
+        description: Cantidad de registros exitosos en el periodo
+      - name: cliente
+        description: Cantidad de clientes en el periodo, usuarios sin cierre de cuenta, ya sea voluntaria o involuntaria
+      - name: clientes_ready
+        description: Cantidad de clientes ready en el periodo, usuarios sin cierre de cuenta, ya sea voluntaria o involuntaria ni desinstalación como último evento del periodo
+      - name: cuentas_cerradas
+        description: Cantidad de usuarios que han cerrado cuenta
+      - name: churn_periodo
+        description: Cantidad de usuarios con fuga en el periodo
+      - name: ob_periodo
+        description: Cantidad de usuarios con registro exitoso en el periodo
+      - name: cierres_cuenta_periodo
+        description: Cantidad de usuarios con cierre de cuenta en el periodo
+      - name: churn_periodo_voluntario
+        description:  Cantidad de usuarios con fuga voluntaria en el periodo
+      - name: churn_periodo_involuntario
+        description: Cantidad de usuarios con fuga involuntaria en el periodo
+      - name: retorno_periodo_voluntario
+        description: Cantidad de usuarios que retornan en el periodo (cuya fuga había sido voluntaria)
+      - name: retorno_periodo_involuntario
+        description: Cantidad de usuarios que retornan en el periodo (cuya fuga había sido involuntaria)
+      - name: churn_ready
+        description: Tasa de churn de clientes ready
+      - name: churn_ready_voluntario
+        description: Tasa de churn de clientes ready, sólo considera fuga por desinstación o cierre voluntario
+      - name: churn_clientes
+        description: Tasa de churn de clientes
+      - name: churn_clientes_voluntario
+        description: Tasa de churn de clientes, sólo considera fuga por cierre voluntario
+

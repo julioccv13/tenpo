@@ -1,0 +1,14 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/uat/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashbackUat'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        segment_name: 'segment_target_uat.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/uat'
+        environment: '{{ var.value.environment }}'
+dag_args:
+  dag_id: '055_pagos_workflow_uat'
+  schedule_interval: '@once'

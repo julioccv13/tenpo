@@ -1,0 +1,64 @@
+version: 2
+
+models:
+    - name: campañas
+      description: "Detalle de las campañas que realizamos en loyalty"
+      columns:
+        - name: campaign_id
+          description: ID de la campaña
+        - name: campaign
+          description: nombre de la campaña
+        - name: campaign_type
+          description: tipo de campaña que solo puede tomar dos posiles valores ( FRIST TRX | CASHBACK) para primera transaccion y para trsacciones recurrentes
+        - name: transaction_type
+          description: indica sobre que linea de negocio se aplica el premio
+        - name: new_user
+          description: indica la logica ( V | F ) si es para usuario nuevo o usuario recurrente
+        - name: cupon
+          description: nombre del cupon
+        - name: creation_date
+          description: fecha de creacion de la campaña
+        - name: campaign_start
+          description: fecha de inicio de la campaña
+        - name: campaign_end
+          description: fecha de fin de la campaña
+        - name: redeemed
+          description: cantidad de cupones utilizados efectivos
+        - name: min_amount
+          description: monto minimo del cupon para hacerse efectivo
+        - name: max_amount
+          description: tope maximo de devolucion del cupon
+
+    - name: cupones
+      description: "Detalle de la actividad de los cupones"
+      columns:
+        - name: fecha
+          description: fecha de ingreso de cupon en formato dd-mm--yyy
+        - name: enter_coupon_date
+          description: fecha de ingreso de cupon en formato timestamp
+        - name: redeem_coupon_date
+          description: fecha de quema o uso del cupon efectiva
+        - name: user
+          description: identificador del usuario
+        - name: purchase_trx_id
+          description: id de transaccion que gatillo el cupon
+        - name: reward_trx_id
+          description: id de transaccion del premio abonado al usuario
+        - name: campaign_id
+          description: id de la campaña
+        - name: campaign
+          description: nombre de la campaña
+        - name: coupon
+          description: nombre del cupon
+        - name: confirmed
+          description: indica el estado de la quema del cupon ( true | false )
+        - name: min_coupon_amount
+          description: monto minimo para hacer efectivo el cupon
+        - name: max_coupon_amount
+          description: tope de devolucion del cupon
+        - name: cupon_merchant
+          description: comercio el cual gatillo el uso del cupon
+        - name: cupon_spent
+          description: monto gastado para el activar el premio del cupon
+        - name: cupon_reward
+          description: premio abonado al usuario producto del uso del cupon

@@ -1,0 +1,16 @@
+ultron:
+  namespace: streaming
+  name: orchestrator
+  arguments:
+    - python
+    - orchestrator.py
+  docker_image: gcr.io/tenpo-datalake-{{ var.value.environment }}/scoring-api:v0.1
+  secret_name: ultron-secrets
+  secrets:
+    KAFKA_USERNAME: kafka-username
+    KAFKA_PASSWORD: kafka-password
+    KAFKA_BOOTSTRAP_SERVER: bootstrap-server
+  env_vars:
+    PROJECT_ID: "tenpo-datalake-{{ var.value.environment }}"
+    ENV: prod
+    GROUP_ID: "tests"

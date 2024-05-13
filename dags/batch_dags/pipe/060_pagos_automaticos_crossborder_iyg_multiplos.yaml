@@ -1,0 +1,50 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: 'b67a65ea-ff1f-4756-bacb-6776e5240a13'
+        segment_name: '20231013_remesa_invita_gana_1.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: 'dc8051d3-a114-479b-914f-3553ff09ec4e'
+        segment_name: '20231013_remesa_invita_gana_2.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: '3c3cc9e9-2057-4847-9a46-bf82fb77813a'
+        segment_name: '20231013_remesa_invita_gana_3.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: '8c70bc78-efc5-4a75-a1d8-13aac5b103b6'
+        segment_name: '20231013_remesa_invita_gana_4.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: '6a277204-fb6d-4cff-815d-9d1554ecc682'
+        segment_name: '20231013_remesa_invita_gana_5.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+dag_args:
+  dag_id: '060_pagos_automaticos_crossborder_referidos_iyg_multiples_v2'
+  schedule_interval: '0 */2 9-31 11 *'

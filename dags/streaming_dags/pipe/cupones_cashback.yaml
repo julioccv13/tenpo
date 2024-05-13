@@ -1,0 +1,19 @@
+add-coupon-ack:
+  namespace: streaming
+  name: add-coupon-ack
+  arguments:
+    - python
+    - cli.py
+    - run
+  docker_image: gcr.io/tenpo-datalake-{{ var.value.environment }}/cupones-cashback:v0.1
+  secret_name: cupones-cashback-secrets
+  secrets:
+    KAFKA_BOOTSTRAP: kafka-bootstrap
+    KAFKA_USERNAME: kafka-username
+    KAFKA_PASSWORD: kafka-password
+    
+  env_vars:
+    CSV_PATH: gs://{{ var.value.cupones_cashback_bucket }}/add_coupon_ack
+    CHECKPOINT_PATH: gs://{{ var.value.cupones_cashback_bucket }}/add_coupon_ack_checkpoint
+    TOPIC_NAME: ADD_COUPON_ACK
+    ENV: prod

@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: appsflyer_users
+    description: "Usuarios unicos de appsflyer"
+    +tags: 
+      - "appsflyer_users"
+      - "daily"
+
+  - name: appsflyer_users_min_time
+    description: "Primera fecha que el usuario hizo una acción"
+    +tags: 
+      - "appsflyer_users_min_time"
+      - "daily"
+
+  - name: nps_nndd
+    description: "Resultados de las encuestas NPS de negocios digitales"
+
+  - name: users_last_touch
+    description: "Tabla resumida de los últimos toques por usuario"
+    +tags: "daily"
+
+  - name: clevertap_autid
+    description: "Tabla que audita los usuarios que existen en clevertap"
+    +tags: "daily"
+
+  - name: freshdesk
+    description: "Tabla que deja los registros de los tickets de freshdesk"
+    +tags: "daily"
+
+  - name: appsflyer_weebhooks_events
+    description: "Tabla que se alimenta de la data de los webhooks de appsflyer"
+    +tags: "hourly"
+
+  - name: appsflyer_partners_daily_USD
+    description: "Suma de dailys ios y android en USD"
+
+  - name: tickets_freshdesk
+    description: "Historico tickets freshdesk procesados"
+
+  - name: tabla_call_south_processed
+    description: "Tabla que da formato a los datos traidos desde el sftp de call south"
+    +tags: "hourly"
+##

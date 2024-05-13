@@ -1,0 +1,101 @@
+
+version: 2
+
+models:
+  - name: cashin
+    description: "Cashin"
+
+  - name: cashout
+    description: "Cashouts"
+
+  - name: mastercard
+    description: "Mastercard"
+
+  - name: mastercard_2
+    description: "Mastercard"
+
+  - name: p2p
+    description: "P2P"
+
+  - name: topups
+    description: "Topups"
+
+  - name: paypal
+    description: "Paypal"
+
+  - name: economics_p2p_cobro
+    description: "Tabla con transacciones economicas de P2P"
+  
+  - name: cashin_savings
+    description: "Tabla con transacciones de aporte bolsillo"
+
+  - name: cashout_savings
+    description: "Tabla con transacciones de rescate bolsillo"
+
+  - name: economics
+    description: "Tabla con transacciones economicas de distintas lineas de negocio"
+    columns:
+      - name: economics_trx_id
+        description: Nemonico con ID de transaccion
+      - name: trx_id
+        description: ID de la transaccion
+        tests:
+          - unique
+      - name: user
+        description: Nemonico con ID del usuario
+      - name: email
+        description: Correo electrónico del usuario
+      - name: monto
+        description: Monto de la transacción en CLP
+      - name: fecha
+        description: Fecha de creación de la transacción
+      - name: trx_timestamp
+        description: Timestamp de la fecha de creación de la transacción
+      - name: linea
+        description: Línea de negocio a la cual pertenece la transacción - documentacion de las lineas aqui https://bit.ly/documentacion_economics
+      - name: canal
+        description: Canal de procedencia de la transacción (app por defecto)
+      - name: comercio
+        description: Nombre del comercio de la transacción "as is"
+      - name: comercio_recod
+        description: Nombre del comercio recodificado
+      - name: rubro_recod
+        description:  Nombre del rubro recodificado según definiciones del negocio
+      - name: nombre
+        description: Tipo de transacción perteneciente a la Línea de negocio
+      - name: codact
+        description: Código de actividad Mastercard
+      - name: actividad_cd
+        description: Código de actividad Mastercard
+      - name: actividad_nac_cd
+        description: Código de actividad Nacional Mastercard
+      - name: cat_tenpo1
+        description: Descripción categoría Tenpo N°1
+      - name: cat_tenpo2
+        description: Descripción categoría Tenpo N°2
+    tests:
+    - dbt_utils.recency:
+        datepart: day
+        field: fecha
+        interval: 1
+
+
+  - name: rubros_comercios
+    description: "Tabla de rubros por comercio"
+    columns:
+      - name: linea
+        description: Línea de negocio a la cual pertenece la transacción
+      - name: comercio
+        description: Nombre del comercio de la transacción "as is"
+      - name: comercio_recod
+        description: Nombre del comercio recodificado
+      - name: rubro_recod
+        description:  Nombre del rubro recodificado según definiciones del negocio
+
+  - name: datamart_too_500_transactions
+    description: "Tabla con transacciones economicas de distintas lineas de negocio con información sensible de usuarios"
+    columns:
+      - name: trx_id
+        description: ID de la transaccion
+        tests:
+          - unique

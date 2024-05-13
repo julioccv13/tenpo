@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: active_buyers_agrupacion_uso
+    description: "Active Buyers últimos 30 días por agrpación de rpoductos que utiliza en Tenpo" 
+    columns:
+      - name: fecha
+        description: Fecha de análisis
+      - name: agrupacion_uso
+        description: Nombre de los flujos utilizados en la app
+      - name: total_ab
+        description:  Active buyers del periodo
+
+  - name: active_buyers_camada
+    description: "Active Buyers últimos 30 días por mes de onboarding (camada) y cuántos de ellos transan en meses siguientes"
+  
+  - name: active_buyers_camada_ever
+    description: "Active Buyers últimos 30 días por mes de onboarding (camada) y cuántos de ellos transan en meses siguientes ever"  
+  
+  - name: active_buyers_nproductos
+    description: "Active Buyers últimos 30 días por cantidad de productos que utiliza"  
+    columns:
+      - name: fecha
+        description: Fecha de análisis
+      - name: total_productos_v2
+        description: Cantidad de productos utilizados (Tenencia)
+      - name: total_ab
+        description:  Active buyers del periodo
+  - name: active_buyers_proyectado
+    description: "Active Buyers proyectados por día del mes"
+    columns:
+      - name: fecha_min
+        description: Mes de análisis
+      - name: fecha_max
+        description: Fecha de análisis
+      - name: total_ab
+        description: Active buyers del periodo
+      - name: dia_mes
+        description: Día del mes
+      - name: porc_crecim
+        description: Porcentaje de crecimiento correspondiente al día del mes
+      - name: accumulated
+        description: Porcentaje de crecimiento acumulado
+      - name: ab_proy
+        description: Proyección de Active Buyers
+      - name: max_ab_proy
+        description: Proyección máxima de active buyers del periodo
+  - name: active_buyers_status
+    description: "Active Buyers últimos 30 días según procedencia: Topups, Paypal, Nuevo"
+
+  - name: active_buyers_validación
+    description: "Active Buyers últimos 30 días por tipo de validación de identidad"
+    columns:
+      - name: fecha
+        description: Fecha de análisis
+      - name: is_tef_validated
+        description: Tipo de validación del usuario
+      - name: total_ab
+        description:  Active buyers del periodo
+        
+  - name: active_buyers_ratio_clients
+    description: "Ratio de Active Buyers sobre clientes, diario y mensual"
+    columns: 
+      - name: fecha
+        description: Fecha de análisis
+      - name: daily_active_users
+        description: Usuarios activos en el día
+      - name: monthly_active_users
+        description: Usuarios activos en el mes, últimos 30 días
+      - name: clientes_acum
+        description: Clientes acumulados a la fecha de análisis
+      - name: ratio_mau_clientes
+        description: Ratio usuarios activos en el mes
+      - name: ratio_dau_clientes
+        description: Ratio usuarios activos en el día

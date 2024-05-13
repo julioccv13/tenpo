@@ -1,0 +1,12 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/119/section_3/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'Process119_Bulk_Upload'
+        ds_nodash: '{{ dag_run.conf["exec_date"] if "exec_date" in dag_run.conf else ds_nodash }}'
+        bucket_name: '{{ var.value.environment }}-source-files'
+dag_args:
+  dag_id: '119_bulk_upload_cloudrun'
+  schedule_interval: '@once'

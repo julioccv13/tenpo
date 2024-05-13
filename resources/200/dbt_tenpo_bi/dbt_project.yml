@@ -1,0 +1,365 @@
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: "tenpo_bi"
+version: "1.0.0"
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: "default"
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+source-paths: ["models"]
+analysis-paths: ["analysis"] # aun no lo usamos
+test-paths: ["tests"] # solo parcialmente
+data-paths: ["data"] # aun no lo usamos
+macro-paths: ["macros"] # aun no lo usamos
+snapshot-paths: ["snapshots"]
+
+target-path: "target" # directory which will store compiled SQL files
+clean-targets: # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_modules"
+vars:
+  not_in_lineas: ['reward','pfm','saldo']
+  states_onboarding: [4,7,8,17,18,19,20,21,22,23]
+
+snapshots:
+  +target_schema: snapshots
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+# In this example config, we tell dbt to build all models in the example/ directory
+# as tables. These settings can be overridden in the individual model files
+# using the `{{ config(...) }}` macro.
+models:
+  tenpo_bi:
+    # Applies to all files under models/example/
+    external:
+      schema: external
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    data_cost:
+      schema: data_cost
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    marketing:
+      schema: marketing
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    sac_operaciones:
+      schema: sac_operaciones
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+    
+    payment_loyalty:
+      schema: payment_loyalty
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    economics:
+      schema: economics
+      materialized: view
+      +tags: ["hourly"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    corporative:
+      schema: corporative
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    outliers:
+      schema: outliers
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    topups:
+      schema: topups
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    activity:
+      schema: activity
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    users:
+      schema: users
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    paypal:
+      schema: paypal
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    referral_program:
+      schema: referral_program
+      materialized: view
+      +tags: ["iyg"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    characterizations:
+      schema: characterizations
+      materialized: view
+      +tags: ["characterizations"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    retention:
+      schema: retention
+      materialized: view
+      +tags: ["retention"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    coupons:
+      schema: coupons
+      materialized: view
+      +tags: ["coupons"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    savings:
+      schema: savings
+      materialized: view
+      +tags: ["savings"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    active_buyers:
+      schema: active_buyers
+      materialized: view
+      +tags: ["active_buyers"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    funnel:
+      schema: funnel
+      materialized: view
+      +tags: ["funnel"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    churn:
+      schema: churn
+      materialized: view
+      +tags: ["churn"]
+      +persist_docs:
+        relation: true
+        columns: true
+    
+    balance:
+      schema: balance
+      materialized: view
+      +tags: ["balance","weekly"]
+      +persist_docs:
+        relation: true
+        columns: true
+    
+    prepago:
+      schema: prepago
+      materialized: view
+      +tags: ["prepago"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    camadas:
+      schema: camadas
+      materialized: view
+      +tags: ["camadas"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    crossborder:
+      schema: crossborder
+      materialized: view
+      +tags: ["crossboder"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    physical_card:
+      schema: physical_card
+      materialized: view
+      +tags: ["physical_card"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    compliance:
+      schema: compliance
+      materialized: view
+      +tags: ["compliance"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    transactions_history:
+      schema: transactions_history
+      materialized: view
+      +tags: ["transactions_history"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    bancarization:
+      schema: bancarization
+      materialized: view
+      +tags: ["bancarization"]
+      +persist_docs:
+        relation: true
+        columns: true
+
+    empresas:
+      schema: empresas
+      materialized: view
+      +tags: ["empresas"]
+      +persist_docs:
+        relation: true
+        columns: true
+    
+    payment_cca_batch:
+      schema: payment_cca_batch
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    utility_payments:
+      schema: utility_payments
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    tenpo_business:
+      schema: tenpo_business
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+    insurance:
+      schema: insurance
+      materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+
+on-run-start:
+  - "{{proper_name()}}"
+  - "{{Multiplier()}}"
+  - "{{accent2latin()}}"
+
+seeds:
+  tenpo_bi:
+    +schema: seed_data
+    pnl:
+      +project: "{{ env_var('DBT_PROJECT4', 'tenpo-datalake-sandbox') }}"
+      +schema: aux_table
+      parametros_tu_medio_pago:
+          +enabled: true
+          +column_types:
+            id_medio: INT64
+            contraparte: STRING
+            medio: STRING
+            modalidad: STRING
+            fecha_inicio: DATE
+            fecha_termino: DATE
+            tipo_costo: STRING
+            costo: FLOAT64
+    paypal:
+      +enabled: true
+      codigos_bancos:
+        +column_types:
+          descripcion_larga1: STRING
+          descripcion_corta1: STRING
+          valor1: FLOAT64
+      codigos_tipos_cuentas:
+        +column_types:
+          descripcion_larga1: STRING
+          descripcion_corta1: STRING
+          valor1: FLOAT64
+    common: 
+      user_states:
+        +enabled: true
+      diccionario_prp_movimiento:
+        +enabled: true
+        +column_types:
+            descripcion: STRING
+            tipofac: STRING
+            indnorcor: STRING
+            signo: STRING
+            glosa: STRING
+            detalle: STRING
+      rubros_mcc:
+        +enabled: true
+        +column_types:
+          mcc_code: INT64
+          agrupacion_rubro_gsauma: STRING
+          descripcion_nacional: STRING
+          glosa_mcc: STRING
+          descripcion_mcc: STRING
+      regiones:
+        +enabled: true
+        +column_types:
+          nombre_region: STRING
+          sigla_region: STRING
+      region_rename:
+        +enabled: true
+        +column_types:
+          region_name: STRING
+          region_rename: STRING
+      operaciones_sia:
+        +enabled: true
+        +column_types:
+          codigo_trx_id: INT64
+          descripcion_sia: STRING
+      
+    savings:
+      nombres_fondos:
+        +enabled: true
+        +column_types:
+          id_fondo: INT64
+          nombre_fondo: STRING

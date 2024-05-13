@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: daily_balance
+    description: "Detalle del saldo diario a nivel de usuario según archivos Tecnocom"
+    columns:
+    - name: fecha
+      description: Fecha del registro de saldo
+    - name: user
+      description: Identificador del usuario
+    - name: saldo_dia
+      description: Valor del saldo
+    - name: bool_trx_origen
+      description: Booleano que describe si el usuario tiene actividad o no en la app
+    - name: churn
+      description: Booleano que describe si el usuario es Cliente Ready o se ha fugado de la app

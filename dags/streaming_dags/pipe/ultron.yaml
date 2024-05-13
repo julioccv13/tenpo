@@ -1,0 +1,25 @@
+scoring-api:
+  namespace: streaming
+  name: scoring-api
+  arguments:
+    - python
+    - main.py
+  docker_image: gcr.io/tenpo-datalake-{{ var.value.environment }}/scoring-api:v0.1
+  secret_name: ultron-secrets
+  secrets:
+    POSTGRES_USER: postgres-user
+    POSTGRES_PASSWORD: postgres-password
+    POSTGRES_DB: postgres-db
+    DB_PORT: db-port
+    KAFKA_USERNAME: kafka-username
+    KAFKA_PASSWORD: kafka-password
+    BOOTSTRAP_SERVER: bootstrap-server
+    DB_HOST: db-host
+  env_vars:
+    KAFKA_ACK_TOPIC: ACK_CAMPAIGN_MANAGER_SET_SCORES
+    BUCKET_CUPONES: '{{ var.value.environment }}-cupones-files'
+    PROJECT_ID: 'tenpo-datalake-{{ var.value.environment }}'
+    SUBSCRIPTION_ID: '{{ var.value.environment }}-ultron-topic-sub'
+    SUBSCRIPTOR_TIMEOUT: '3600'
+    ENV: prod
+    GROUP_ID: 'consumer-ACK_CAMPAIGN_MANAGER_SET-jarvis'

@@ -1,0 +1,77 @@
+descripcion,tipofac,indnorcor,signo,glosa,detalle
+UNKNOWN,0,0,+,Tipo factura desconocido,Desconocido
+COMPRA_NACIONAL,5,0,+,Compra nacional,Compra
+ANULA_COMPRA_NACIONAL,5,1,-,Anulación compra nacional,Anulación
+CARGO_TRASPASO_SALDO,335,0,+,Cargo de traspasod de saldo,Retiro
+RECARGO_TRASPASO_SALDO,336,0,-,Recargo de traspaso de saldo,Carga
+COMISION_APERTURA,3000,0,+,Comisión apertura,Comisión
+ANULA_COMISION_APERTURA,3000,1,-,Anulacion comisión apertura,Anulación
+CARGA_TRANSFERENCIA,3001,0,-,Carga por transferencia,Carga
+ANULA_CARGA_TRANSFERENCIA,3001,1,+,Anulación carga por transferencia,Anulación
+CARGA_EFECTIVO_COMERCIO_MULTICAJA,3002,0,-,Carga en efectivo,Carga
+ANULA_CARGA_EFECTIVO_COMERCIO_MULTICAJA,3002,1,+,Anulación carga en efectivo,Anulación
+RETIRO_TRANSFERENCIA,3003,0,+,Retiro por transferencia,Retiro
+ANULA_RETIRO_TRANSFERENCIA,3003,1,-,Anulacion retiro por transferencia,Anulación
+RETIRO_EFECTIVO_COMERCIO_MULTICJA,3004,0,+,Retiro en efectivo,Retiro
+ANULA_RETIRO_EFECTIVO_COMERCIO_MULTICJA,3004,1,-,Anulación retiro en efectivo,Anulación
+REEMISION_DE_TARJETA,3005,0,+,Reemisión de tarjeta,Comisión
+ANULA_REEMISION_DE_TARJETA,3005,1,-,Anulación reemisión de tarjeta,Anulación
+SUSCRIPCION_INTERNACIONAL,3006,0,+,Suscripción Internacional,Compra
+ANULA_SUSCRIPCION_INTERNACIONAL,3006,1,-,Anulación Suscripción Internacional,Anulación
+COMPRA_INTERNACIONAL,3007,0,+,Compra Internacional,Compra
+ANULA_COMPRA_INTERNACIONAL,3007,1,-,Anula compra Internacional,Anulación
+COMPRA_COMERCIO_RELACIONADO,3008,0,+,Compra comercio relacionado,Compra
+ANULA_COMPRA_COMERCIO_RELACIONADO,3008,1,-,Anula comercio comercio relacionado,Anulación
+DEVOLUCION_COMPRA_INTERNACIONAL,3010,0,-,Devolución compra internacional,Devolución
+ANULA_DEVOLUCION_COMPRA_INTERNACIONAL,3010,1,+,Anula devolución compra internacional,Anulación
+DEVOLUCION_COMPRA_COM_RELAC,3011,0,-,Devolucion compra comercio relacionado,Devolución
+ANULA_DEVOLUCION_COMPRA_COM_RELAC,3011,1,+,Anulación devolución compra comercio relacionado,Anulación
+DEVOLUCION_COMPRA_NACIONAL,3012,0,-,Devolución compra nacional,Devolución
+ANULA_DEVOLUCION_COMPRA_NACIONAL,3012,1,+,Anulación revolución compra nacional,Anulación
+RETIRO_MODIFICAR_DESCRIPCION,3013,0,+,,
+ANULA_RETIRO_MODIFICAR_DESCRIPCION,3013,1,-,,
+RETIRO_MODIFICAR_DESCRIPCION_1,3014,0,+,,
+ANULA_RETIRO_MODIFICAR_DESCRIPCION_1,3014,1,-,,
+RETIRO_MODIFICAR_DESCRIPCION_2,3015,0,+,,
+ANULA_RETIRO_MODIFICAR_DESCRIPCION_2,3015,1,-,,
+MONEYSEND_PAYMENT,3016,0,+,,
+ANULA_MONEYSEND_PAYMENT,3016,1,-,,
+ANTICIPO_DE_CAJA,3017,0,+,,
+ANULA_ANTICIPO_DE_CAJA,3017,1,-,,
+SUSCRIPCION_COM_RELACIONADO,3018,0,+,,
+ANULA_SUSCRIPC_COM_RELACIONADO,3018,1,-,,
+FACTURA_CIERRE_CARGO,3019,0,+,,
+FACTURA_CIERRE_ABONO,3020,0,-,,
+PREMIO,3021,0,-,Código promocional,Carga
+ANULA_PREMIO,3021,1,+,Anula código promocional,Anulación
+CONSUTA_DE_CUENTA,3022,0,+,,
+REVERSO_DE_CONSULTA_DE_CUENTA,3022,1,-,,
+RECARGA,3025,0,+,Recarga,Retiro
+ANULA_RECARGA,3025,1,-,Anulacion recarga,Anulación
+PAGO_DE_CUENTA,3026,0,+,Pago de cuenta,Retiro
+ANULA_PAGO_DE_CUENTA,3026,1,-,Anulacion pago de cuenta,Anulación
+DEVOLUCION_POR_FRAUDE,3027,0,-,Devolucion por fraude,Carga
+ANULA_DEVOLUCION_POR_FRAUDE,3027,1,+,Anulacion devolucion por fraude,Anulación
+COMPRA_INTERNACIONAL_PESOS,3028,0,+,Compra internac pesos,Compra
+ANULA_COMPRA_INTERNACIONAL_PESOS,3028,1,-,Anulacion Compra internac pesos,Anulación
+SUSCRIPCION_INTERNAC_PESOS,3029,0,+,Suscripcion internac pesos,Compra
+ANULA_SUSCRIPCION_INTERNAC_PESOS,3029,1,-,Anulacion Suscripcion internac pesos,Anulación
+DEVOLUCION_COMPRA_INTERNAC_PESOS,3030,0,-,Devolución compra internacional pesos,Devolución
+SUSCRIPCION_NACIONAL,3031,0,+,Suscripcion nacional,Compra
+ANULA_SUSCRIPCION_NACIONAL,3031,1,-,Anula Suscripcion nacional,Anulación
+CARGA_PAYPAL,3032,0,-,Carga Paypal,Carga
+ANULA_CARGA_PAYPAL,3032,1,+,Anula Carga paypal,Anulación
+CARGA_EFECTIVO_COMERCIO_SENCILLITO,90,0,-,Carga en efectivo sencillito,Carga
+ANULA_CARGA_EFECTIVO_COMERCIO_SENCILLITO,90,1,+,Anulación carga en efectivo sencillito,Anulación
+APORTE_BOLSILLO_CREDICORP,550,0,+,Aporte Credicorp,Carga
+ANULA_APORTE_BOLSILLO_CREDICORP,550,1,-,Anula Aporte Credicorp,Anulación
+RESCATE_BOLSILLO_CREDICORP,500,0,-,Rescate Credicorp,Carga
+ANULA_RESCATE_BOLSILLO_CREDICORP,500,1,+,Anula Rescate Credicorp,Anulación
+CARGA_EFECTIVO_COMERCIO_UNIRED,711,0,-,Carga en efectivo unired,Carga
+ANULA_CARGA_EFECTIVO_COMERCIO_UNIRED,711,1,+,Anulación carga en efectivo unired,Anulación
+REGULARIZACION_NEGATIVA,1300,0,+,Regularizacion negativa,Regularización
+ANULA_REGULARIZACION_NEGATIVA,1300,1,-,Anulacion regularizacion negativa,Regularizació
+REGULARIZACION_POSITIVA,1350,0,-,Regularizacion positiva,Regularización
+ANULA_REGULARIZACION_POSITIVA,1350,1,+,Anulacion regularizacion positiva,Regularización
+TRANSFERENCIA_EXTRANJERO,3033,0,+,Transferencia al extranjero,Retiro
+ANULA_TRANSFERENCIA_EXTRANJERO,3033,1,-,Anula Transferencia al extranjero,Anulación

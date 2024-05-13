@@ -1,0 +1,40 @@
+-- Inyeccion de parametros desde Airflow
+DROP TABLE IF EXISTS `${project_source}.temp.PAB_{{ds_nodash}}_003_Params`;
+CREATE TABLE `${project_source}.temp.PAB_{{ds_nodash}}_003_Params` AS (
+WITH airflow_params AS (
+        SELECT 
+          CAST(DATE_ADD(PARSE_DATE("%Y%m%d", "{{ds_nodash}}"), INTERVAL 1 MONTH) AS DATETIME) AS Fecha_Ejec
+          ,3 AS UTC_CORRECTION
+    ), processed_params AS (
+        SELECT
+            Fecha_Ejec
+            ,DATETIME_TRUNC(Fecha_Ejec, MONTH) AS Fecha_Inicio_Ejec
+            ,DATETIME_SUB(DATETIME_TRUNC(Fecha_Ejec, MONTH), INTERVAL 1 MONTH) AS Fecha_Inicio_Analisis
+            ,DATETIME_SUB(DATETIME_TRUNC(Fecha_Ejec, MONTH), INTERVAL 1 SECOND) AS Fecha_Fin_Analisis
+
+            ,EXTRACT(YEAR FROM Fecha_Ejec)*100 + EXTRACT(MONTH FROM Fecha_Ejec) AS Anomes_Ejec
+            ,EXTRACT(YEAR FROM Fecha_Ejec)*100 + EXTRACT(WEEK FROM Fecha_Ejec) AS Semana_Ejec
+            ,EXTRACT(YEAR FROM Fecha_Ejec)*12 + EXTRACT(MONTH FROM Fecha_Ejec) AS Mes_Ejec
+            
+            FROM airflow_params
+    )
+    SELECT
+        p.*
+        
+        ,CAST(Fecha_Inicio_Ejec AS DATE) as Fecha_Inicio_Ejec_DT
+        ,CAST(Fecha_Inicio_Analisis AS DATE)as Fecha_Inicio_Analisis_DT
+        ,CAST(Fecha_Fin_Analisis AS DATE) as Fecha_Fin_Analisis_DT
+
+        ,TIMESTAMP_ADD(CAST(Fecha_Inicio_Ejec AS TIMESTAMP), INTERVAL 3*60 MINUTE) as Fecha_Inicio_Ejec_TS
+        ,TIMESTAMP_ADD(CAST(Fecha_Inicio_Analisis AS TIMESTAMP), INTERVAL 3*60 MINUTE) as Fecha_Inicio_Analisis_TS
+        ,TIMESTAMP_ADD(CAST(Fecha_Fin_Analisis AS TIMESTAMP), INTERVAL 3*60 MINUTE) as Fecha_Fin_Analisis_TS
+
+        ,EXTRACT(YEAR FROM Fecha_Inicio_Analisis)*100 + EXTRACT(MONTH FROM Fecha_Inicio_Analisis) AS Anomes_Inicio_Analisis
+        ,EXTRACT(YEAR FROM Fecha_Inicio_Analisis)*100 + EXTRACT(WEEK FROM Fecha_Inicio_Analisis) AS Semana_Inicio_Analisis
+        ,EXTRACT(YEAR FROM Fecha_Inicio_Analisis)*12 + EXTRACT(MONTH FROM Fecha_Inicio_Analisis) AS Mes_Inicio_Analisis
+
+        ,UNIX_SECONDS(TIMESTAMP_ADD(CAST(Fecha_Inicio_Ejec AS TIMESTAMP), INTERVAL 3*60 MINUTE)) as inicio_ejec_desde_epoch
+        ,UNIX_SECONDS(TIMESTAMP_ADD(CAST(Fecha_Fin_Analisis AS TIMESTAMP), INTERVAL 3*60 MINUTE)) as cierre_analisis_desde_epoch
+
+    FROM processed_params p
+);

@@ -1,0 +1,32 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/p100/section_1/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'SequentialDag'
+        ds_nodash: '{{ ds_nodash }}'
+        bucket_name: '{{ var.value.environment }}-source-files'
+        project_id: 'tenpo-datalake-{{ var.value.environment }}'
+        project_target: 'tenpo-datalake-{{ var.value.environment }}'
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/p100/section_2/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'SequentialDag'
+        ds_nodash: '{{ ds_nodash }}'
+        bucket_name: '{{ var.value.environment }}-source-files'
+        project_id: 'tenpo-datalake-{{ var.value.environment }}'
+        project_target: 'tenpo-datalake-{{ var.value.environment }}'
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/p100/section_3/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'SequentialDag'
+        ds_nodash: '{{ ds_nodash }}'
+        bucket_name: '{{ var.value.environment }}-source-files'
+        project_id: 'tenpo-datalake-{{ var.value.environment }}'
+        project_target: 'tenpo-datalake-{{ var.value.environment }}'
+dag_args:
+  dag_id: 'SequentialDag'
+  schedule_interval: '@once'

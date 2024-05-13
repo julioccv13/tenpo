@@ -1,0 +1,828 @@
+[
+    {
+        "name": "fecha",
+        "mode": "NULLABLE",
+        "type": "DATE",
+        "fields": []
+      },
+    {
+        "name": "user",
+        "mode": "NULLABLE",
+        "type": "STRING",
+        "fields": []
+      },
+    {
+      "name": "ts",
+      "mode": "NULLABLE",
+      "type": "INTEGER",
+      "fields": []
+    },
+    {
+      "name": "eventname",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "fields": []
+    },
+    {
+      "name": "profile",
+      "mode": "NULLABLE",
+      "type": "RECORD",
+      "fields": [
+        {
+          "name": "all_identities",
+          "mode": "NULLABLE",
+          "type": "RECORD",
+          "fields": [
+            {
+              "name": "list",
+              "mode": "REPEATED",
+              "type": "RECORD",
+              "fields": [
+                {
+                  "name": "item",
+                  "mode": "NULLABLE",
+                  "type": "STRING",
+                  "fields": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "email",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "identity",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "name",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "phone",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "platform",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "push_token",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        }
+      ]
+    },
+    {
+      "name": "eventprops",
+      "mode": "NULLABLE",
+      "type": "RECORD",
+      "fields": [
+        {
+          "name": "action",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "amount",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "attempt",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "breakdown",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "campaign",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "campaign_id",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "campaign_name",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "campaign_type",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "cantidad_de_comercios",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "cashoutquantity",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "categoria",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "category",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "code",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "comercio",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "compania",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "comuna",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "correo",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "coupon",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "couponname",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ct_app_version",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ct_app_version_prev",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ct_network_carrier",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ct_os_version",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ct_sdk_version",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ct_session_id",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ct_source",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "description",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "direccion",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "divisa",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "employer_company_name",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "empresa",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "fecha",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "feedback",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "frecuencia",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "group",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "grupo",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "hasusesuggestion",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "id",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "identity",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "install",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "intentosrutinvalidos",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "intentosserieinvalidos",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "is_cp_related",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "istotalamount",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "job",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "meincluded",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "message",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "method",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "moneda_pesos",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "monto",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "monto_faltante_pesos",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "monto_pesos",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "nacionalidad",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "name",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "nombre",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "nombre_comercio",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "numero_de_telefono",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "ocupacion",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "posicion",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "position",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "product",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "provider",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "region",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "resubscribed",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "result",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "rut",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "saldo",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "score",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "screen",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "sentiment",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "servicio",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "session_id",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "session_length",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "source",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "status",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "subcategoria_n2",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "subcategoria_n3",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "subcategoria_n4",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "subscription_type",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "suscriptor",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "tenpocontacts",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "tenpocontactspercentage",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "tipo",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "token",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "totalcontacts",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "type",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "url",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "user",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "userid",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "utility",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "value",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "variant",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "work_occupation",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "work_status",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_acct_id",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_bc",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_bi",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_c2a",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_cid",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_ck",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_cts",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_dl",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_dt",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_from",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_id",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_pid",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_pivot",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_pn",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_push_amp",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_rnv",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_ttl",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "wzrk_ttl_s",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "comment",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "input_type",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "label",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "user_rating",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "journey_id",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "journey_name",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "closemotives",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        },
+        {
+          "name": "closeaccountreason",
+          "mode": "NULLABLE",
+          "type": "STRING",
+          "fields": []
+        }
+      ]
+    },
+    {
+      "name": "controlgroupname",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "fields": []
+    },
+    {
+      "name": "dt",
+      "mode": "NULLABLE",
+      "type": "DATE",
+      "fields": []
+    }
+  ]

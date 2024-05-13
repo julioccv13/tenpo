@@ -1,0 +1,32 @@
+version: 2
+
+models:
+    - name: engagement_ratio
+      description: "Describe la tasa de engegament definida por Krealo para los Cashins"
+      columns:
+        - name: first_month
+          description: Distancia en meses del mes de análisis al mes 0, enero 2020
+        - name: first_month_recod
+          description: Distancia en meses recodificada para que indique el número del mes desde el mes 0
+        - name: first_month_recod_2
+          description: Distancia en meses recodificada para que indique el número del mes desde el mes 0 pero de 1 a 12
+        - name: new_users
+          description: Usuarios nuevos (con primer cashin)
+        - name: retention_month
+          description: Mes en el que el usuario es retenido
+        - name: retained
+          description: Total de usuarios
+        - name: retention_percent
+          description: Porcentaje de usuarios
+    - name: retention_maus
+      description: "Calcula el total de maus retenidos al mes siguiente"
+    - name: monthly_retention
+      description: "Indica el % de retención de los usuarios que vuelven a transaccionar (en cualquier flujo, incluye cashin y cashouts) en meses posteriores"
+    - name: monthly_retention_by_product
+      description: "Indica el % de retención de los usuarios que vuelven a transaccionar en meses posteriores, desglosado por producto"
+    - name: retention_by_user_category
+      description: "Cálculo del % de retención de usuarios activos, nuevos y usuarios que retornan después de 2 o más meses de no haber transaccionado"
+    - name: retention_by_user_category_and_product
+      description: "Cálculo del % de retención de usuarios activos, nuevos y usuarios que retornan después de 2 o más meses de no haber transaccionado desglosado por producto"
+    - name: retention_maus_producto
+      description: "Cálculo de % de retorno en meses posteriores de MAUs en cada mes de análisis desglosado por producto"

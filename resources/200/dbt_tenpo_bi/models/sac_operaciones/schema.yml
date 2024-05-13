@@ -1,0 +1,19 @@
+version: 2
+
+models:
+    - name: nps
+      description: "Obtiene el NPS por usuario"
+    - name: nps_grupos
+      description: "Obtiene la tendencia de promotores y detractores"
+    - name: reincidenciaa
+      description: "Calcula los clientes que tienen reincidencia en los tickets"
+    - name: categorias_reincidencia
+      description: "Calcula la categoria de la reincidencia de los tickets"
+    - name: tickets_per_mau
+      description: "Calcula las consultas por MAU y Reclamos por MAU"
+    - name: kpi_fuga_mau
+      description: "Clientes que son maus el mes 1, levantan ticket en mes 1 y dejan de ser MAU en mes 2"
+    - name: kpi_fuga_churn
+      description: "Clientes que son maus el mes 1, levantan ticket en mes 1 y son churn MAU en mes 2"
+    - name: users
+      description: "Contiene informacion enriquecida de los usuarios de tenpo"

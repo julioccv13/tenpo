@@ -1,0 +1,26 @@
+state,state_name,description
+0,PENDING,"Usuario ingresa mail y nombre, se guarda en BBDD"
+1,VALIDATED,Usuario valida cédula correctamente
+2,UNCONFIRMED,Usuario ingresa celular y se envía código de validación
+3,CONFIRMED,Usuario valida satisfactoriamente su celular
+4,ACTIVE,Usuario Activo
+5,BLOCKED,Usuario bloqueado por fraude
+6,BLACKLIST,Usuario aparece en listas negras (Gesintel)
+7,LIMITED,Usuario con acceso a cuenta pero sin poder hacer movimientos
+8,CLOSED,Cuenta cerrada
+9,EMAIL_VALIDATED,Usuario valida su correo 
+10,PP_PENDING,PAYPAL / YA NO SE USA
+11,PP_EQUIFAX_VALIDATED,PAYPAL / YA NO SE USA
+12,PP_DOCUMENT_VALIDATED,PAYPAL / YA NO SE USA
+13,PP_PROFESSION_NATIONALITY,PAYPAL / YA NO SE USA
+14,PP_LOGIN_VALIDATED,PAYPAL / YA NO SE USA
+15,PP_ACTIVE,PAYPAL / YA NO SE USA
+16,EMAIL_PENDING,Email pendiente
+17,CLOSED_TEMPORAL,Bloqueo temporal
+18,CLOSED_TEMPORAL_FRAUD,Bloqueo temporal por fraude
+19,CLOSED_THEFT,Cierre por robo
+20,CLOSED_MISUSE,Cierre por mal uso
+21,CLOSED_UNUSED,Cierre legal por no uso
+22,CLOSED_SAC,Cierre solicitado por usuario a SAC
+23,CLOSED_FRUAD,Cierre por fraude
+24,PEDING_VADLIDATION,Pendiente de validación por equifax (plan de contingencia cuando equifax está caído)

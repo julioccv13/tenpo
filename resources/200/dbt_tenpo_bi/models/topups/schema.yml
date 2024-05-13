@@ -1,0 +1,5 @@
+version: 2
+
+models:
+    - name: funnel_recargas
+      description: "datos de recargas con todos los estados"

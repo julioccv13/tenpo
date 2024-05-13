@@ -1,0 +1,24 @@
+ultron-segmentation:
+  namespace: streaming
+  name: ultron-segmentation
+  arguments:
+    - python
+    - PullApp.py
+  docker_image: gcr.io/tenpo-datalake-{{ var.value.environment }}/campaign.bucket.notification.to.postgres:latest
+  secret_name: ultron-secrets
+  secrets:
+    POSTGRES_USER: postgres-user
+    POSTGRES_PASSWORD: postgres-password
+    POSTGRES_DB: postgres-db
+    DB_HOST: db-host
+    DB_PORT: db-port
+    KAFKA_USERNAME: kafka-username
+    KAFKA_PASSWORD: kafka-password
+    KAFKA_BOOTSTRAP_SERVER: bootstrap-server
+  env_vars:
+    KAFKA_TOPIC_NAME: ACK_CAMPAIGN_MANAGER_SET_SEGMENTATION
+    POSTGRES_TABLE_NAME: public.user_campaign
+    PUBSUB_ACK_TOPIC_NAME: prod-ultron-topic
+    GCP_PROJECT_ID: tenpo-datalake-prod
+    PUBSUB_SUBSCRIPTION_NAME: subs_pull_bkt_notification_segmentation-listener-b9c6cd23-prod
+    BUCKET_NAME: segmentation-stagging-b9c6cd23-prod

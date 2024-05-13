@@ -1,0 +1,209 @@
+
+version: 2
+
+models:
+  - name: performance_referrers
+    description: "Registra la performance del referido: N de usuarios invitados y su calidad"
+    columns:
+      - name: referidor
+        description: Identificador del usuario referente
+      - name: camada_ob_referrer
+        description: Camada del usuario referente
+      - name: grupo
+        description: Grupo en el que entra al whitelist
+      - name: recency
+        description: Recencia del referente
+      - name: monetary
+        description: Monto del referente
+      - name: frequency
+        description: Frecuencia de compra del referente
+      - name: product
+        description: Tenencia del referente
+      - name: rfmp_product
+        description: Score producto RFMP referente
+      - name: score
+        description: Score RFMP referente
+      - name: segment
+        description: Segmento RFMP referente
+      - name: monto_ganado
+        description: Monto ganado por invitaciones 
+      - name: usuarios_invitados
+        description: Usuarios invitados
+      - name: invitaciones_redimidas
+        description: Invitaciones redimidas
+      - name: ob_invitados
+        description: Cantidad de usuarios invitados con Onboarding exitoso
+      - name: fci_invitados
+        description: Cantidad de usuarios invitados con First Cashin
+      - name: act_invitados
+        description: Cantidad de usuarios invitados con Tarjeta Activa
+      - name: pseudocompras_invitados
+        description: Cantidad de usuarios invitados con Compra (independiente que no sea exitosa)
+      - name: compras_invitados
+        description: Cantidad de usuarios invitados con Compra
+      - name: oportunistas
+        description: Clasifica si un usuario cae en categoría "oportunista" o no 
+      - name: ltv_invitados
+        description: Monto gastado por invitado
+      - name: sum_monto_pseudocompra
+        description: Monto compras (independiente que no sea exitosa)
+      - name: sum_monto_compra
+        description: Monto compras
+  - name: referrals_group_week
+    description: "Registros de referidos por grupo del referente por semana/días"
+    columns:
+      - name: referrer
+        description: Identificador del usuario referente 
+      - name: user
+        description: Identificador del usuario referido
+      - name: grupo
+        description: Grupo en el que entra al whitelist
+      - name: cuenta_ob_iyg
+        description: Cuenta de Onboardings 
+      - name: fecha_ingreso_beta
+        description: Fecha de ingreso al programa Invita y Gana (Referente)
+      - name: fecha_ob_user
+        description: Fecha de onboarding del invitado
+      - name: sem_ingreso_beta
+        description: Semana de ingreso al programa Invita y Gana (Referente)
+      - name: sem_ob_user
+        description: Semana de onboarding del invitado
+      - name: dias_diff
+        description: Días de diferencia entre fecha de ingreso al beta y registro del invitado
+      - name: isoweek_diff
+        description: Semanas de diferencia entre fecha de ingreso al beta y registro del invitado
+  - name: oportunistas
+    description: "Clasifica a usuario oportunista por su Ratio de CO/CI, trx que corresponden a premios y monto gastado total"
+    columns:
+      - name: id
+        description: Identificador del usuario
+      - name: state
+        description: Estado de registro
+      - name: timestamp_ob
+        description: Timestamp de onboarding
+      - name: fecha_ob
+        description: Fecha de onboarding
+      - name: invita_gana
+        description: Flag que indica si el usuario se registra por programa Invita y Gana
+      - name: last_ndd_service_bm
+        description: Último servicio de Negocios digitales utilizado por el usuario antes de la migración a Tenpo
+      - name: grupo
+        description: Grupo en el que entra al whitelist
+      - name: camada_ob_referrer
+        description: Camada del usuario referente
+      - name: camada_ob_user
+        description: Camada del usuario referido
+      - name: churn
+        description: Boolean que indica la fuga
+      - name: motor
+        description: Motor de atribución 
+      - name: carga_plata
+        description: Indica si el usuario ha realizado un primer cashin
+      - name: prim_cashin
+        description: Indica el timestamp del primer cashin
+      - name: activa_tarjeta
+        description: Indica si el usuario ha activado su tarjeta
+      - name: compra
+        description: Indica si el usuario ha realizado su primera compra
+      - name: retira_plata
+        description: Indica si el usuario ha realizado un primer cashout
+      - name: prim_cashout
+        description: Indica el timestamp del primer cashout
+      - name: monto_primer_cashout
+        description: Monto del primer cashout
+      - name: prim_compra
+        description: Timestamp de la primera compra
+      - name: monto_primera_compra
+        description: Monto de la primera compra
+      - name: horas_a_primera_trx_ci
+        description: Tiempo en horas desde el Onboarding hasta el Primer Cashin
+      - name: horas_a_primera_trx_mc
+        description: Tiempo en horas desde el Onboarding hasta la primera Compra
+      - name: horas_a_activacion
+        description: Tiempo en horas desde el Onboarding hasta la activación
+      - name: agrupacion_prod_2
+        description: Agrupación tenencia
+      - name: trx_ci
+        description: Transacciones de Cashin desde el origen
+      - name: trx_co
+        description: Transacciones de Cashout desde el origen
+      - name: trx_mc
+        description: Compras desde el origen
+      - name: ratio_coci
+        description: Ratio Cashout sobre Cashins
+      - name: total_premios
+        description: Total cupones redimidos
+      - name: monto_premios
+        description: Monto en premios ganados
+      - name: ltv
+        description: Monto gastado desde el origen
+      - name: trx_totales
+        description: Transacciones totales desde el origen
+      - name: recencia
+        description: Días desde la última transacción
+      - name: oportunista
+        description: Indica si el usuario se considera oportunista o no
+
+  - name: parejas_iyg
+    description: "Listado de parejas del programa de referidos, referente + referido, fechas de registro y fecha de ingreso al Whitelist"
+    columns:
+      - name: referrer
+        description: Identificador del usuario referente 
+      - name: fecha_ob_referrer
+        description: Fecha de onboarding del referente
+      - name: camada_ob_referrer
+        description: Camada de Onboarding del referente
+      - name: fecha_ingreso_beta
+        description: Fecha de ingreso al programa Invita y Gana
+      - name: tiempo_en_beta_referrer
+        description: Tiempo que lleva en el programa
+      - name: user
+        description: Identificador del referido
+      - name: fecha_ob_user
+        description: Fecha de onboarding del referido
+      - name: camada_ob_user
+        description: Camada del referido
+      - name: tiempo_al_ob
+        description: Tiempo desde el ingreso del referente al beta hasta el registro del referido
+      - name: grupo
+        description: Grupo en el que entra al whitelist
+      - name: segment_referrer
+        description: Segmento RFMP del referente
+      - name: score_referrer
+        description: Score RFMP del referente
+  
+  - name: funnel_invitagana
+    description: "Pasos del funnel de Onboarding completados a nivel de usuario con fechas filtrado por usuarios que entran por el programa de referidos"
+    columns: 
+      - name: fecha_creacion
+        description: Fecha de creación del paso del funnel
+      - name: timestamp_fecha
+        description: Timestamp creación del paso del funnel
+      - name: fecha
+        description: Fecha del paso
+      - name: fecha_ob
+        description: Fecha de Onboarding
+      - name: camada_ob
+        description: Camada del Onboarding
+      - name: fecha_funnel
+        description: Fecha del paso
+      - name: paso
+        description: Descripción del paso
+      - name: paso_num
+        description: Número del paso
+      - name: uuid
+        description: Identificador del usuario
+      - name: source
+        description: Source
+      - name: motor
+        description: Motor de atribución
+      - name: monto
+        description: Monto del paso
+      - name: grupo
+        description: Grupo en el que entra al whitelist 
+      - name: camada_ob_referrer
+        description: Camada Onboarding referente
+      - name: segment_referrer
+        description: Segmento RFMP del referente
+      - name: score_referrer
+        description: Score RFMP del referente

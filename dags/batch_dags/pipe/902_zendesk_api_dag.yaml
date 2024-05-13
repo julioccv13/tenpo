@@ -1,0 +1,16 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/902_Zendesk/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'ProcessZendesk'
+        bucket_name: '{{ var.value.environment }}-source-files'
+        period: 'diario'
+        project: 'tenpo-datalake-{{ var.value.environment }}'
+        api_key: '{{ var.value.zendesk_api_key }}'
+        base_url: '{{ var.value.zendesk_base_url }}'
+dag_args:
+  dag_id: '902_Zendesk_Api_bash'
+  schedule_interval: '0 1 * * *'
+  on_failure_callback: get_task_success_slack_alert_callback('slack_conn-{{ var.value.environment }}')

@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: aum_balance_ratio
+    description: "Ratio de Assets under management sobre el saldo en tenpo del día"
+    +tags: "savings"
+
+  - name: tiempo_fuga
+    description: "Tiempo entre un Aporte y un Rescate total"
+    +tags: "savings"
+ 
+  - name: is_total_cash_out
+    description: "Detalle de rescates totales"
+
+  - name: permanencia_recursos_ci_co
+    description: "Cálculo de la diferencia de tiempo en horas entre un aporte y un rescate consecutivos por fecha de creación del rescate"
+
+  - name: position_range_active_user_savings
+    description: "AUM diario desglosado por rangos de ahorro"
+
+  - name: ccam_document_signed
+    description: "Gestor documental del Resumen de Autorizaciones de bolsillo por usuario"
+
+  - name: ccam_general_contract_signed
+    description: "Gestor documental del CONTRATO GENERAL DE FONDOS de bolsillo por usuario"
+
+  - name: ccam_identity_validation
+    description: "Gestor documental de los documentos de validación de identidad por usuario"
+  
+  - name: ccam_us_person_document
+    description: "Gestor documental de las Declaraciones Jurada US Person de bolsillo por usuario"
+  
+  - name: ccam_operating_hours
+    description: "Detalle de operaciones de rescates y aportes con la razón de espera según horario de funcionamiento"
+  
+  - name: ccam_risk_indicator
+    description: "Detalle con indicador de riesgo por usuario según definiciones del negocio"
+  
+  - name: ccam_cashin_cashout
+    description: "Detalle de solicitudes de rescates y aportes"
+  
+  - name: ccam_pep
+    description: "Detalle de usuarios PEP en bolsillo"
+  
+

@@ -1,0 +1,16 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/001/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'Process001'
+        ds_nodash: '{{ dag_run.conf["exec_date"] if "exec_date" in dag_run.conf else ds_nodash }}'
+        bucket_name: '{{ var.value.environment }}-source-files'
+        sbif_api_key: '{{ var.value.api_sbif_secret }}'
+        project_id: 'tenpo-bi'
+        project_source: 'tenpo-datalake-{{ var.value.environment }}'
+        project_target: 'tenpo-datalake-{{ var.value.environment }}'
+dag_args:
+  dag_id: '001_cloudrun_dag_Ingesta_Dolar_CMF_v2'
+  schedule_interval: '0 0 * * *'

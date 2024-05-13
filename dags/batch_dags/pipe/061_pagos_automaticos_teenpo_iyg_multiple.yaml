@@ -1,0 +1,14 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/prod/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: 'f172e366-c378-42ec-9289-8a3ea6b1e230'
+        segment_name: '20231016_iyg_teenpo_query_rank.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+dag_args:
+  dag_id: '061_pagos_automaticos_teenpo_iyg_multiple'
+  schedule_interval: '0 */2 9-31 11 *'

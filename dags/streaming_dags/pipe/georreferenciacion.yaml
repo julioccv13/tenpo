@@ -1,0 +1,18 @@
+ingesta:
+  namespace: streaming
+  name: georreferenciacion
+  arguments:
+    - python
+    - command.py
+  docker_image: gcr.io/tenpo-datalake-{{ var.value.environment }}/georreferenciacion-consumer:v0.1
+  secret_name: geo-secrets
+  secrets:
+    BOOTSTRAP_SERVER: kafka-bootstrap
+    KAFKA_USERNAME: kafka-username
+    KAFKA_PASSWORD: kafka-password
+  env_vars:
+    ENV: sandbox
+    KAFKA_TOPIC: USER_LOGGED_IN
+    GROUP_ID: consumer-user-logged-in-jarvis
+    DATASET: georeferencing
+    TABLE: data_georeferencing

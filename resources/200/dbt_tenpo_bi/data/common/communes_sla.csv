@@ -1,0 +1,347 @@
+commune,id_sla,sla_min,sla_max,sla_promess
+la pintana,1,2,3,4
+renca,1,2,3,4
+puente alto,1,2,3,4
+pedro aguirre cerda,1,2,3,4
+lo espejo,1,2,3,4
+quilicura,1,2,3,4
+conchali,1,2,3,4
+recoleta,1,2,3,4
+el bosque,1,2,3,4
+pudahuel,1,2,3,4
+la granja,1,2,3,4
+huechuraba,1,2,3,4
+providencia,1,2,3,4
+san ramon,1,2,3,4
+san miguel,1,2,3,4
+cerro navia,1,2,3,4
+la reina,1,2,3,4
+pirque,1,2,3,4
+padre hurtado,1,2,3,4
+lo prado,1,2,3,4
+maipu,1,2,3,4
+vitacura,1,2,3,4
+estacion central,1,2,3,4
+cerrillos,1,2,3,4
+lo barnechea,1,2,3,4
+san bernardo,1,2,3,4
+penalolen,1,2,3,4
+la florida,1,2,3,4
+quinta normal,1,2,3,4
+macul,1,2,3,4
+ñuñoa,1,2,3,4
+talagante,1,2,3,4
+colina,1,2,3,4
+la serena,1,2,3,4
+independencia,1,2,3,4
+santiago,1,2,3,4
+la cisterna,1,2,3,4
+penaflor,1,2,3,4
+san joaquin,1,2,3,4
+las condes,1,2,3,4
+concepcion,2,2,4,5
+ovalle,2,2,4,5
+san fernando,2,2,4,5
+vina del mar,2,2,4,5
+temuco,2,2,4,5
+copiapo,2,2,4,5
+san antonio,2,2,4,5
+linares,2,2,4,5
+los andes,2,2,4,5
+talcahuano,2,2,4,5
+puerto montt,2,2,4,5
+talca,2,2,4,5
+valparaiso,2,2,4,5
+chillan,2,2,4,5
+osorno,2,2,4,5
+san felipe,2,2,4,5
+coquimbo,2,2,4,5
+chiguayante,2,2,4,5
+quilpue,2,2,4,5
+rancagua,2,2,4,5
+curico,2,2,4,5
+puerto varas,2,2,4,5
+los angeles,2,2,4,5
+vallenar,2,2,4,5
+valdivia,2,2,4,5
+coyhaique,3,3,5,6
+arica,3,3,5,6
+castro,3,3,5,6
+juan fernandez,3,3,5,6
+iquique,3,3,5,6
+punta arenas,3,3,5,6
+isla de pascua,3,3,5,6
+antofagasta,3,3,5,6
+calama,3,3,5,6
+chillan viejo,4,3,8,9
+hualane,4,3,8,9
+san pedro de la paz,4,3,8,9
+alto biobio,4,3,8,9
+queilen,4,3,8,9
+guaitecas,4,3,8,9
+mulchen,4,3,8,9
+villa alegre,4,3,8,9
+curacavi,4,3,8,9
+san esteban,4,3,8,9
+tolten,4,3,8,9
+cabrero,4,3,8,9
+la ligua,4,3,8,9
+chanaral,4,3,8,9
+hualqui,4,3,8,9
+quellon,4,3,8,9
+molina,4,3,8,9
+traiguen,4,3,8,9
+sierra gorda,4,3,8,9
+ninhue,4,3,8,9
+curepto,4,3,8,9
+putre,4,3,8,9
+freirina,4,3,8,9
+chile chico,4,3,8,9
+santa maria,4,3,8,9
+cauquenes,4,3,8,9
+san rosendo,4,3,8,9
+santo domingo,4,3,8,9
+el tabo,4,3,8,9
+gorbea,4,3,8,9
+pelarco,4,3,8,9
+tocopilla,4,3,8,9
+rio verde,4,3,8,9
+coronel,4,3,8,9
+pumanque,4,3,8,9
+quillota,4,3,8,9
+pichilemu,4,3,8,9
+rengo,4,3,8,9
+san jose de maipo,4,3,8,9
+quillon,4,3,8,9
+coinco,4,3,8,9
+ancud,4,3,8,9
+purranque,4,3,8,9
+hualaihue,4,3,8,9
+o'higgins,4,3,8,9
+padre las casas,4,3,8,9
+puyehue,4,3,8,9
+coihueco,4,3,8,9
+quilleco,4,3,8,9
+ranquil,4,3,8,9
+paihuano,4,3,8,9
+melipeuco,4,3,8,9
+los vilos,4,3,8,9
+rio negro,4,3,8,9
+hualpen,4,3,8,9
+tirua,4,3,8,9
+donihue,4,3,8,9
+victoria,4,3,8,9
+la higuera,4,3,8,9
+san javier,4,3,8,9
+lota,4,3,8,9
+curacautin,4,3,8,9
+marchihue,4,3,8,9
+cochrane,4,3,8,9
+frutillar,4,3,8,9
+bulnes,4,3,8,9
+timaukel,4,3,8,9
+peumo,4,3,8,9
+mejillones,4,3,8,9
+natales,4,3,8,9
+andacollo,4,3,8,9
+villa alemana,4,3,8,9
+alhue,4,3,8,9
+torres del paine,4,3,8,9
+laguna blanca,4,3,8,9
+la estrella,4,3,8,9
+fresia,4,3,8,9
+rinconada,4,3,8,9
+diego de almagro,4,3,8,9
+combarbala,4,3,8,9
+zapallar,4,3,8,9
+pemuco,4,3,8,9
+camarones,4,3,8,9
+empedrado,4,3,8,9
+palena,4,3,8,9
+retiro,4,3,8,9
+parral,4,3,8,9
+canela,4,3,8,9
+calle larga,4,3,8,9
+pinto,4,3,8,9
+quinta de tilcoco,4,3,8,9
+corral,4,3,8,9
+teno,4,3,8,9
+calera de tango,4,3,8,9
+ollague,4,3,8,9
+futaleufu,4,3,8,9
+quinchao,4,3,8,9
+rio hurtado,4,3,8,9
+santa cruz,4,3,8,9
+los sauces,4,3,8,9
+cobquecura,4,3,8,9
+hijuelas,4,3,8,9
+pica,4,3,8,9
+salamanca,4,3,8,9
+casablanca,4,3,8,9
+panquehue,4,3,8,9
+requinoa,4,3,8,9
+san rafael,4,3,8,9
+monte patria,4,3,8,9
+santa barbara,4,3,8,9
+nueva imperial,4,3,8,9
+llanquihue,4,3,8,9
+tortel,4,3,8,9
+el monte,4,3,8,9
+general lagos,4,3,8,9
+puerto octay,4,3,8,9
+cochamo,4,3,8,9
+taltal,4,3,8,9
+primavera,4,3,8,9
+isla de maipo,4,3,8,9
+vilcun,4,3,8,9
+litueche,4,3,8,9
+san pedro,4,3,8,9
+negrete,4,3,8,9
+caldera,4,3,8,9
+pozo almonte,4,3,8,9
+mafil,4,3,8,9
+constitucion,4,3,8,9
+algarrobo,4,3,8,9
+san pedro de atacama,4,3,8,9
+pucon,4,3,8,9
+romeral,4,3,8,9
+maullin,4,3,8,9
+lampa,4,3,8,9
+colbun,4,3,8,9
+yerbas buenas,4,3,8,9
+pitrufquen,4,3,8,9
+villarrica,4,3,8,9
+olivar,4,3,8,9
+vicuna,4,3,8,9
+paine,4,3,8,9
+puchuncavi,4,3,8,9
+curanilahue,4,3,8,9
+lautaro,4,3,8,9
+rio ibanez,4,3,8,9
+mariquina,4,3,8,9
+cabo de hornos,4,3,8,9
+sagrada familia,4,3,8,9
+penco,4,3,8,9
+lumaco,4,3,8,9
+lebu,4,3,8,9
+alto hospicio,4,3,8,9
+papudo,4,3,8,9
+chaiten,4,3,8,9
+angol,4,3,8,9
+rio bueno,4,3,8,9
+maule,4,3,8,9
+porvenir,4,3,8,9
+peralillo,4,3,8,9
+nacimiento,4,3,8,9
+tucapel,4,3,8,9
+petorca,4,3,8,9
+maria pinto,4,3,8,9
+la calera,4,3,8,9
+antartica,4,3,8,9
+el carmen,4,3,8,9
+longavi,4,3,8,9
+coelemu,4,3,8,9
+arauco,4,3,8,9
+niquen,4,3,8,9
+los alamos,4,3,8,9
+carahue,4,3,8,9
+til til,4,3,8,9
+buin,4,3,8,9
+palmilla,4,3,8,9
+olmue,4,3,8,9
+dalcahue,4,3,8,9
+coltauco,4,3,8,9
+melipilla,4,3,8,9
+calbuco,4,3,8,9
+rauco,4,3,8,9
+santa juana,4,3,8,9
+chepica,4,3,8,9
+pencahue,4,3,8,9
+teodoro schmidt,4,3,8,9
+san ignacio,4,3,8,9
+huasco,4,3,8,9
+antuco,4,3,8,9
+yungay,4,3,8,9
+lolol,4,3,8,9
+san juan de la costa,4,3,8,9
+curarrehue,4,3,8,9
+illapel,4,3,8,9
+puqueldon,4,3,8,9
+san vicente,4,3,8,9
+mostazal,4,3,8,9
+catemu,4,3,8,9
+lago ranco,4,3,8,9
+nancagua,4,3,8,9
+putaendo,4,3,8,9
+las cabras,4,3,8,9
+paredones,4,3,8,9
+freire,4,3,8,9
+rio claro,4,3,8,9
+futrono,4,3,8,9
+los lagos,4,3,8,9
+collipulli,4,3,8,9
+laja,4,3,8,9
+graneros,4,3,8,9
+tome,4,3,8,9
+pichidegua,4,3,8,9
+san fabian,4,3,8,9
+chonchi,4,3,8,9
+san clemente,4,3,8,9
+treguaco,4,3,8,9
+canete,4,3,8,9
+quemchi,4,3,8,9
+lago verde,4,3,8,9
+loncoche,4,3,8,9
+contulmo,4,3,8,9
+concon,4,3,8,9
+renaico,4,3,8,9
+florida,4,3,8,9
+maria elena,4,3,8,9
+cisnes,4,3,8,9
+la cruz,4,3,8,9
+quirihue,4,3,8,9
+llay-llay,4,3,8,9
+cholchol,4,3,8,9
+pelluhue,4,3,8,9
+camina,4,3,8,9
+chimbarongo,4,3,8,9
+san nicolas,4,3,8,9
+alto del carmen,4,3,8,9
+machali,4,3,8,9
+punitaqui,4,3,8,9
+placilla,4,3,8,9
+lonquimay,4,3,8,9
+portezuelo,4,3,8,9
+malloa,4,3,8,9
+huara,4,3,8,9
+panguipulli,4,3,8,9
+licanten,4,3,8,9
+perquenco,4,3,8,9
+curaco de velez,4,3,8,9
+aysen,4,3,8,9
+nogales,4,3,8,9
+saavedra,4,3,8,9
+cartagena,4,3,8,9
+vichuquen,4,3,8,9
+san carlos,4,3,8,9
+chanco,4,3,8,9
+quilaco,4,3,8,9
+limache,4,3,8,9
+quintero,4,3,8,9
+tierra amarilla,4,3,8,9
+los muermos,4,3,8,9
+lanco,4,3,8,9
+colchane,4,3,8,9
+el quisco,4,3,8,9
+cunco,4,3,8,9
+navidad,4,3,8,9
+galvarino,4,3,8,9
+san gregorio,4,3,8,9
+san pablo,4,3,8,9
+codegua,4,3,8,9
+puren,4,3,8,9
+ercilla,4,3,8,9
+paillaco,4,3,8,9
+cabildo,4,3,8,9
+la union,4,3,8,9
+yumbel,4,3,8,9

@@ -1,0 +1,8 @@
+id_medio,contraparte,medio,modalidad,fecha_inicio,fecha_termino,tipo_costo,costo
+7,khipu,Khipu,,2000-01-01,,pct,0.0100
+2,transbank,Webpay,Debito,2000-01-01,2022-04-07,pct,0.0149
+2,transbank,Webpay,Crédito,2000-01-01,2022-04-07,pct,0.0295
+4,,Puntos RecargaFácil,,2000-01-01,,pct,1.0000
+3,transbank,OneClick,,2000-01-01,,pct,0.0295
+2,transbank,Webpay,Debito,2022-04-08,,pct,0.0116
+2,transbank,Webpay,Crédito,2022-04-08,,pct,0.0212

@@ -1,0 +1,36 @@
+default:
+  outputs:
+
+    dev:
+      type: bigquery
+      method: oauth
+      project: "tenpo-datalake-sandbox"
+      dataset: "dbt" # You can also use "schema" here
+      threads: 16
+      timeout_seconds: 300
+      location: US # Optional, one of US or EU
+      priority: interactive
+      retries: 1
+
+    prod_local:
+      type: bigquery
+      method: oauth
+      project: "tenpo-bi-prod"
+      dataset: "dbt_common"
+      threads: 4
+      timeout_seconds: 300
+      priority: interactive
+      retries: 1
+    
+    prod:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('DBT_PROJECT2', 'tenpo-datalake-sandbox') }}"
+      dataset: "dbt_common"
+      threads: 16
+      keyfile: "{{ env_var('GCP_KEY_JSON') }}"
+      timeout_seconds: 300
+      priority: interactive
+      retries: 1
+
+  target: "{{ env_var('DBT_TARGET', 'dev') }}"

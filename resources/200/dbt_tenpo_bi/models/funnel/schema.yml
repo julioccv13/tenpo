@@ -1,0 +1,116 @@
+version: 2
+
+models:
+  - name: funnel_tenpo
+    description: "Pasos del funnel de Onboarding y Activación por fecha y usuario"
+    columns:
+      - name: fecha_creacion
+        description: "Fecha de creación del paso del funnel"
+      - name: timestamp_fecha
+        description: "Timestamp de creación del paso del funnel"
+      - name: fecha
+        description: "Fecha del paso del funnel"
+      - name: fecha_ob 
+        description: "Fecha de Onboarging completado del usuario"
+      - name: camada_ob
+        description: "Camada del usuario (mes)"
+      - name: fecha_funnel
+        description: "Fecha del paso del funnel"
+      - name: paso
+        description: "Descripción del paso del funnel"
+      - name: paso_num
+        description: "Número del paso del funnel"
+      - name: uuid
+        description: "ID del usuario"
+      - name: source
+        description: "Fuente de atribución del usuario (base users)"
+      - name: motor
+        description: "Motor de atribución del usuario (Appsflyer)"
+      - name: monto
+        description: "Monto asociado al paso de funnel"
+      - name: grupo
+        description: "Grupo Invita y Gana"
+  
+  - name: funnel_bolsillo
+    description: "Pasos del funnel de Onboarding de Bolsillo por fecha y usuario"
+    columns: 
+      - name: id
+        description: "ID del usuario"
+      - name: fecha_creacion
+        description: "Fecha de creación del paso del funnel"
+      - name: fecha_ob
+        description: "Fecha de Onboarging completado del usuario"
+      - name: fecha_funnel
+        description: "Fecha del paso del funnel"
+      - name: paso
+        description: "Descripción del paso del funnel"
+      - name: num
+        description: "Número del paso del funnel"
+      - name: monto
+        description: "Monto asociado al paso de funnel"
+
+  - name: funnel_fco
+    description: "Usuarios con Primer cashout con fecha y monto"
+    columns: 
+      - name: fecha_fco
+        description: "Fecha de creación del primer cashout"
+      - name: monto_fco
+        description: "Monto del primer cashout"
+      - name: paso
+        description: "Descripción del paso del funnel"
+      - name: user
+        description: "ID del usuario"
+  
+  - name: funnel_onboarding
+    description: "Usuarios con Onboarding con fecha"
+    columns: 
+      - name: fecha_ob
+        description: "Fecha de Onboarging completado del usuario"
+      - name: fecha_inicio_ob
+        description: "Fecha de Inicio de Onboarging del usuario"
+      - name: dias_diff
+        description: "Días entre inicio y término del Onboarding"
+      - name: user
+        description: "ID del usuario"
+
+  - name: funnel_primera_compra
+    description: "Usuarios con Primera compra con fecha y monto"
+    columns: 
+      - name: fecha_ce
+        description: "Fecha de creación de la primera compra exitosa"
+      - name: monto_ce
+        description: "Monto de la primera compra exitosa"
+      - name: paso
+        description: "Descripción del paso del funnel"
+      - name: user
+        description: "ID del usuario"
+
+  - name: funnel_activacion
+    description: "Usuarios con cuenta activa"
+    columns: 
+      - name: user
+        description: "ID del usuario"
+      - name: fecha_activacion
+        description: "Fecha de activación de la cuenta"
+      - name: paso
+        description: "Descripción del paso del funnel"
+      - name: fecha_actualizacion_tarjeta
+        description: "Última fecha de actualización de la tarjeta"
+      - name: cuenta_tarjetas
+        description: "Número total de tarjetas"
+
+  - name: time_to_next_step_funnel
+    description: "Tiempos por usuario en completar pasos importantes del funnel"
+    columns: 
+      - name: user
+        description: "ID del usuario"
+      - name: fecha_io
+        description: "Fecha inicio del onboarding"
+      - name: fecha_ob
+        description: "Fecha de Onboarging completado del usuario"
+      - name: fecha_fci
+        description: "Fecha de creación del primer cashin"
+      - name: min_to_ob
+        description: "Minutos del Inicio al término del Onboarding"
+      - name: min_to_fci
+        description: "Minutos desde el Onboarding al primer cashin"

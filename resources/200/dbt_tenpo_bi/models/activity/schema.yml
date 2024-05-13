@@ -1,0 +1,108 @@
+version: 2
+
+models:
+
+  - name: retiro_post_reward
+    description: "Cálculo de descriptivos de tiempos entre reward y un posterior cashout"
+    +tags: 
+      - "cupones"
+      - "daily"
+
+  - name: platform
+    description: "Sistema Operativo utilizado por usuario (iOs/Android), arreglo de plataformas únicas y última plataforma utilizada"
+    columns:
+    - name: user
+      description: Identificador del usuario
+    - name: array_unique_platform
+      description: Arreglo de sistema operativos únicos
+    - name: last_platform
+      description: Último sistema operativo utilizado por el usuario
+    +tags: "clevertap"
+
+  - name: last_bank_cashin
+    description: "Último banco origen del cashin"
+    columns:
+    - name: user_id
+      description: Identificador del usuario
+    - name: amount
+      description: Monto del cashin
+    - name: created
+      description: Timestamp del último cashin
+    - name: bank
+      description: Nombre del banco del último cashin
+    +tags: 
+      - "cca"
+      - "bank"
+  
+  - name: carrier
+    description: "Operador telefónico utilizado por el usuario, arreglo de operadores únicos y último operador"
+    columns:
+    - name: user
+      description: Identificador del usuario
+    - name: array_unique_operator
+      description: Arreglo de operadores únicos
+    - name: count_uniq_operator
+      description: Último carrier/operador utilizado
+    - name: last_operator
+      description: Último operador utilizado
+    +tags: "clevertap"
+
+  - name: top_industry
+    description: "Cálculo de compras en los distintos rubros realizadas por los usuarios"
+  
+  - name: device_type
+    description: "Modelo/Marca del dispositivo utilizado por el usuario, arreglo de dispositivos únicos y último dispositivo utilizado"
+    columns:
+    - name: user
+      description: Identificador del usuario
+    - name: array_unique_device_type
+      description: Arreglo de dispositivos únicos
+    - name: last_device_type
+      description: Último dispositivo utilizado
+    +tags: "clevertap"
+
+  - name: valid_sessions
+    description: "Sesiones válidas por usuario con su respectiva duración"
+    columns:
+    - name: fecha
+      description: Fecha de la visita
+    - name: mes_visita
+      description: Mes de la visita
+    - name: tenpo_uuid
+      description: Identificador del usuario
+    - name: session_id
+      description: Identificador de la sesión/visita
+    - name: session_length
+      description: Duración de la sesión en segundos
+    +tags: "clevertap"
+
+  - name: sessions_by_month_by_user
+    description: "Sesiones válidas por usuario por mes según evento Session Concluded de Clevertap"
+    columns:
+    - name: mes_visita
+      description: Mes de la visita
+    - name: tenpo_uuid
+      description: Identificador del usuario
+    - name: f_mau
+      description: Booleano que identifica si el usuario fue MAU en el mes de visita
+    - name: visitas_totales
+      description: Sesiones/visitas totales del usuario en el mes
+    - name: duracion_promedio_sesion
+      description: Duración promedio de las sesiones/visitas del mes en segundos
+    - name: duracion_total_sesion
+      description: Duración total de las sesiones/visitas del mes en segundos
+
+  - name: logins
+    description: "Todos los logins realizados por los usuarios registrados en clevertap"
+    columns:
+    - name: fecha_hora
+      description: hora login
+    - name: user
+      description: user id
+    - name: ct_app_v
+      description: version app
+    - name: ct_os_v
+      description: version sistema operativo
+    - name: plataform
+      description: sistema opereativo (iOS o Android)
+    +tags: "clevertap"

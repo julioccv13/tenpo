@@ -1,0 +1,15 @@
+type: 'cloudrun'
+tasks:
+  - task_data:
+      main_python_file_uri: 'gs://{{ var.value.environment }}-source-files/050/main.py'
+      python_file_uris: 'gs://{{ var.value.environment }}-source-files/core.zip'
+      args:
+        class_name: 'AutomaticCashback'
+        campaing_url: '{{ var.value.automatic_cashback_framework_url }}'
+        campaign_id: '0876cdc5-c957-4119-8bf8-97fd3751f233'
+        segment_name: '20230907_pagos_automaticos_ra_purchase.sql'
+        bucket_path: 'prod_campaign_streaming_files/segments_sql_files/pdc'
+dag_args:
+  dag_id: '056_pagos_automaticos_ra_purchase_workflow_v2'
+  schedule_interval: '@once'
+

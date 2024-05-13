@@ -1,0 +1,280 @@
+version: 2
+
+models:
+    - name: coupons
+      description: "Detalle de todos los cupones quemados o no"
+      columns:
+        - name: id_redeem
+          description: ID de la transacción de redención
+        - name: mov_id_redeem
+          description: ID de la transacción de redención en prp_movimientos
+        - name: th_id_redeem
+          description: ID de la transacción de redención en transaction_history
+        - name: mov_amount_redeem
+          description: Monto de la transacción de redención en prp_movimientos
+        - name: th_amount_redeem
+          description: Monto de la transacción de redención en transaction_history
+        - name: mo_fecha_redeem
+          description: Fecha de la transacción de redención en prp_movimientos
+        - name: th_fecha_redeem
+          description: Fecha de la transacción de redención en transaction_history
+        - name: trx_to_redeem
+          description: ID de la transacción que gatilla la redención
+        - name: mov_trx_to_redeem
+          description: ID de la transacción que gatilla la redención en la prp_movimientos
+        - name: th_trx_to_redeem
+          description: ID de la transacción que gatilla la redención en transaction_history
+        - name: mov_amount_to_redeem
+          description: Monto de la transacción que gatilla la redención en prp_movimientos
+        - name: th_amount_to_redeem
+          description: Monto de la transacción que gatilla la redención en transaction_history
+        - name: mo_fecha_to_redeem
+          description: Fecha de la transacción que gatilla la redención en prp_movimientos
+        - name: th_fecha_to_redeem
+          description: Fecha de la transacción que gatilla la redención en transaction_history
+        - name: redeem_date
+          description: Fecha de redención del cupón
+        - name: created_at
+          description: Fecha de creación
+        - name: user
+          description: ID del usuario
+        - name: state_user
+          description: Estado del usuario
+        - name: fecha_ob
+          description: Fecha de Onboarding
+        - name: confirmed
+          description: Flag confirmación del cupón
+        - name: reconciled
+          description: Flag conciliación del cupón
+        - name: campaign_id
+          description: ID de la campaña
+        - name: campana
+          description: Nombre de la campaña
+        - name: coupon_id
+          description: ID del cupón
+        - name: coupon
+          description: Nombre del cupón
+        - name: mo_nomcomred
+          description: Nombre del comercio
+        - name: coupon_type
+          description: Tipo de cupón
+        - name: objective
+          description: Objetivo de la campaña 
+    - name: coupons_users
+      description: "Onboardings con atribución por cupón"
+      columns:
+        - name: user 
+          description: ID del usuario
+        - name: fecha_ob
+          description: Fecha de Onboarding completado
+        - name: fecha_fci
+          description: Fecha de creación de la primera transacción de Cashin
+        - name: fecha_activacion
+          description: Fecha de acivación de la cuenta Tenpo
+        - name: campaign_name
+          description: Nombre de la campaña
+        - name: coupon_name
+          description: Nombre del cupón ingresado en la app
+        - name: status_cupon
+          description: Status del cupón (ingresado, confirmado...)
+        - name: fecha_redeem
+          description: Fecha de redención del cupón
+        - name: ult_fecha_actividad
+          description: Última fecha de actividad del usuario
+        - name: is_pep
+          description: Flag que indica si el usuario es pep
+  
+    - name: coupons_attribution
+      description: "Total cupones ingresados y confirmados atribuidos al periodo de Onboarding, First Cashin y primera compra"
+      columns: 
+        - name: fecha_ob
+          description: Fecha de Onboarding completado
+        - name: fecha_fci
+          description: Fecha de creación de la primera transacción de Cashin
+        - name: fecha_ce
+          description: Fecha de creación de la primera compra exitosa
+        - name: coupon_name
+          description: Nombre del cupón ingresado en la app
+        - name: tipo_cupon
+          description: Tipo de cupón
+        - name: status_cupon
+          description: Status del cupón (ingresado, confirmado...)
+        - name: onboardings
+          description: Total de Onboardings
+        - name: first_cashins
+          description: Total de primeros Cashins
+        - name: activaciones
+          description: Activaciones totales
+        - name: compras
+          description: Compras exitosas
+        - name: confirmados
+          description: Cantidad de cupones confirmados en la fecha
+        - name: ingresados
+          description: Cantidad de cupones ingresados en la fecha
+
+    - name: coupons_summary
+      description: "Resumen del total cupones ingresados y confirmados"
+      columns:
+        - name: inicio
+          description: Fecha de inicio de la campaña
+        - name: fin
+          description: Fecha de término de la campaña
+        - name: nombre_camp
+          description: Nombre de la campaña
+        - name: nombre_cupon
+          description: Nombre del cupón ingresado en la app
+        - name: tipo_cupon
+          description: Tipo de cupón
+        - name: objetivo
+          description: Objetivo de la campaña
+        - name: vigente
+          description: Flag campaña vigente
+        - name: estado_ca
+          description: Estado de la campaña
+        - name: duracion
+          description: Duración de la campaña
+        - name: dias_acum
+          description: Días transcurridos desde el inicio de la campaña
+        - name: monto
+          description: Monto del cupón
+        - name: max_monto
+          description: Monto máximo
+        - name: cantidad
+          description: Cantidad de cupones
+        - name: redimidos
+          description: Cantidad de cupones redimidos
+        - name: quemados
+          description: Cantidad de cupones quemados
+        - name: quemados_dia
+          description: Ratio de cupones quemados por día de campaña 
+        - name: costo
+          description: Costo de la campaña
+        - name: costo_dia
+          description: Costo por día de la campaña
+        - name: porc_quemados
+          description: Porcentaje de cupones quemados
+    - name: coupons_trx_redeems
+      description: "Redenciones de cupón a nivel de transacción con detalle de trx que gatillan el premio"
+      columns:          
+        - name: id_redeem
+          description: ID de la transacción de redención
+        - name: mov_id_redeem
+          description: ID de la transacción de redención en prp_movimientos
+        - name: th_id_redeem
+          description: ID de la transacción de redención en transaction_history
+        - name: mov_amount_redeem
+          description: Monto de la transacción de redención en prp_movimientos
+        - name: th_amount_redeem
+          description: Monto de la transacción de redención en transaction_history
+        - name: mo_fecha_redeem
+          description: Fecha de la transacción de redención en prp_movimientos
+        - name: th_fecha_redeem
+          description: Fecha de la transacción de redención en transaction_history
+        - name: trx_to_redeem
+          description: ID de la transacción que gatilla la redención
+        - name: mov_trx_to_redeem
+          description: ID de la transacción que gatilla la redención en la prp_movimientos
+        - name: th_trx_to_redeem
+          description: ID de la transacción que gatilla la redención en transaction_history
+        - name: mov_amount_to_redeem
+          description: Monto de la transacción que gatilla la redención en prp_movimientos
+        - name: th_amount_to_redeem
+          description: Monto de la transacción que gatilla la redención en transaction_history
+        - name: mo_fecha_to_redeem
+          description: Fecha de la transacción que gatilla la redención en prp_movimientos
+        - name: th_fecha_to_redeem
+          description: Fecha de la transacción que gatilla la redención en transaction_history
+        - name: redeem_date
+          description: Fecha de redención del cupón
+        - name: created_at
+          description: Fecha de creación
+        - name: user
+          description: ID del usuario
+        - name: state_user
+          description: Estado del usuario
+        - name: fecha_ob
+          description: Fecha de Onboarding
+        - name: confirmed
+          description: Flag confirmación del cupón
+        - name: reconciled
+          description: Flag conciliación del cupón
+        - name: campaign_id
+          description: ID de la campaña
+        - name: campana
+          description: Nombre de la campaña
+        - name: coupon_id
+          description: ID del cupón
+        - name: coupon
+          description: Nombre del cupón
+        - name: source
+          description: Procedencia del usuario (Nuevo, Paypal, Recargas)
+        - name: coupon_type
+          description: Tipo de cupón
+        - name: objective
+          description: Objetivo de la campaña
+    - name: coupons_trx_post_redeems
+      description: "Redenciones de cupón a nivel de transacción con detalle de trx posteriores al premio"
+      columns: 
+        - name: nombre_cupon
+          description: Nombre del cupón
+        - name: nombre_camp
+          description: Nombre de la campaña
+        - name: re_created
+          description: Fecha de creación del redeem
+        - name: mo_fecha_redeem
+          description: Fecha de la redención
+        - name: tipo_cupon
+          description: Tipo de cupón
+        - name: objetivo
+          description: Objetivo comercial del cupón 
+        - name: mov_trx_to_redeem
+          description: Identificador de la transacción que gatilla el redeem
+        - name: id_user
+          description: Identificador del usuario
+        - name: fecha
+          description: Fecha de la transacción post redeem
+        - name: com_recod
+          description: Comercio recodificado
+        - name: linea
+          description: Línea de negocio
+        - name: monto
+          description: Monto de la transacción
+        - name: trx_id
+          description: Identificador de la transacción post redención
+        - name: mo_fecha_to_redeem
+          description: Fecha de la transacción que gatilla la redención
+        - name: num_compra
+          description: Posición de la compra post redeem
+    - name: coupons_trx_pre_redeems
+      description: "Redenciones de cupón a nivel de transacción con detalle de trx previas al premio"
+      columns: 
+        - name: nombre_cupon
+          description: Nombre del cupón
+        - name: nombre_camp
+          description: Nombre de la campaña
+        - name: re_created
+          description: Fecha de creación del redeem
+        - name: mo_fecha_redeem
+          description: Fecha de la redención
+        - name: tipo_cupon
+          description: Tipo de cupón
+        - name: objetivo
+          description: Objetivo comercial del cupón 
+        - name: mov_trx_to_redeem
+          description: Identificador de la transacción que gatilla el redeem
+        - name: id_user
+          description: Identificador del usuario
+        - name: fecha
+          description: Fecha de la transacción pre redeem
+        - name: com_recod
+          description: Comercio recodificado
+        - name: linea
+          description: Línea de negocio
+        - name: monto
+          description: Monto de la transacción
+        - name: trx_id
+          description: Identificador de la transacción previa a la redención
+        - name: mo_fecha_to_redeem
+          description: Fecha de la transacción que gatilla la redención
+        - name: num_compra
+          description: Posición de la compra previa al redeem

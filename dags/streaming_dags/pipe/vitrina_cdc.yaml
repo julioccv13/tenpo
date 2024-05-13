@@ -1,0 +1,19 @@
+vitrina:
+  namespace: streaming
+  name: cdc
+  arguments:
+    - python
+    - VitrinaUpdate.py
+  docker_image: gcr.io/tenpo-datalake-{{ var.value.environment }}/cdc.bq.to.kafka:latest
+  secret_name: ultron-secrets
+  secrets:
+    POSTGRES_USER: postgres-user
+    POSTGRES_PASSWORD: postgres-password
+    POSTGRES_DB: postgres-db
+    DB_HOST: db-host
+    KAFKA_USERNAME: kafka-username
+    KAFKA_PASSWORD: kafka-password
+    KAFKA_BOOTSTRAP_SERVER: bootstrap-server
+  env_vars:
+    POSTGRES_TABLE_NAME: public.user_campaign
+    GCP_PROJECT_ID: tenpo-datalake-{{ var.value.environment }}

@@ -1,0 +1,659 @@
+version: 2
+
+sources:
+  - name: aux_paypal
+    schema: paypal_web
+    database: tenpo-bi
+    tables:
+      - name: aux_funnel_retiros
+      - name: aux_saldos
+      - name: aux_campanas
+      
+  
+  - name: aux_topups
+    schema: topups_web
+    database: tenpo-bi
+    tables:
+      - name: aux_campanas
+  
+  - name: savings_rules
+    schema: savings_rules
+    database: tenpo-airflow-prod
+    tables:
+      - name: rules
+      - name: rule_execution_history
+
+  - name: aux
+    schema: aux
+    database: tenpo-airflow-prod
+    tables:
+      - name: resoluciones_sia
+
+  - name: tenpo_fintoc
+    schema: tenpo_fintoc
+    database: tenpo-airflow-prod
+    tables:
+      - name: intent
+  
+  - name: business
+    schema: business
+    database: tenpo-airflow-prod
+    tables:
+      - name: business
+      - name: bureau_data
+      - name: onboarding
+
+
+  - name: seed_data
+    schema: seed_data
+    database: tenpo-bi-prod
+    tables:
+      - name: operaciones_sia
+  
+  - name: tyba_payment
+    schema: tyba_payment
+    database: tenpo-airflow-prod
+    tables:
+      - name: investments
+      - name: deposit_conciliation
+      - name: withdraws
+  
+  - name: reconciliation
+    schema: reconciliation
+    database: tenpo-airflow-prod
+    tables:
+      - name: trx_part_conciliadas
+      - name: trx_tyba_saldo
+      - name: trx_tyba_cuota
+      - name: trx_mpj_saldo
+      - name: trx_ident_contrato
+
+  - name: tenpo_users
+    schema: users
+    database: tenpo-airflow-prod
+    tables:
+      - name: users
+        loaded_at_field: updated_at
+        freshness: # make this a little more strict
+          warn_after: { count: 3, period: hour }
+          error_after: { count: 24, period: hour }
+      - name: saldos
+      - name: users_failed_onboarding
+      - name: states_user_dict
+      - name: due_diligence_results
+      - name: onboarding_PROD
+      - name: identity_validation_results
+      - name: identity_validations
+
+  - name: aux_table
+    schema: aux_table
+    database: tenpo-bi
+    tables: 
+      - name: name_genders
+      - name: id_preguntas_perfil_inversionista
+      - name: mcc_codes
+      - name: trx_conciliadas
+      - name: regions
+      - name: unsubscribe_web
+      - name: bases_campanas_bucket
+      - name: appsflyer_events
+        description: indica la data que viene a travez de los weebhooks de appsflyer tanto ios como android
+      
+
+  - name: paypal
+    schema: paypal_2020
+    database: "{{ env_var('DBT_PROJECT25', 'tenpo-datalake-sandbox') }}"
+    tables:
+      - name: pay_cliente
+        description: Clientes Paypal.
+        loaded_at_field: fec_hora_actualizacion
+        freshness: # make this a little more strict
+          warn_after: { count: 3, period: hour }
+          error_after: { count: 24, period: hour }
+      - name: pay_cuenta
+        description: Cuentas Paypal.
+        loaded_at_field: fec_fecha_hora_act
+        freshness: # make this a little more strict
+          warn_after: { count: 3, period: hour }
+          error_after: { count: 24, period: hour }
+      - name: pay_transaccion
+        loaded_at_field: fec_fechahora_actualizacion
+        freshness: # make this a little more strict
+          warn_after: { count: 3, period: hour }
+          error_after: { count: 24, period: hour }
+      - name: pay_gran_empresa
+      - name: entidades
+      - name: pay_dolar
+      - name: data_consolidation
+      
+
+  - name: topups_web
+    schema: recargas_2020
+    database: "{{ env_var('DBT_PROJECT21', 'tenpo-datalake-sandbox') }}"
+    tables:
+      - name: ref_transaccion
+      - name: ref_recarga
+      - name: ref_producto
+      - name: ref_operador
+      - name: ref_comisiones
+      - name: ref_tipo_producto
+      - name: ref_estado
+      - name: ref_origen
+      - name: ref_medio_pago
+      - name: slp_puntos_rf
+      - name: slp_usuario
+      - name: bof_persona
+      
+  - name: tenpo_topup
+    schema: tenpo_topup
+    database: tenpo-airflow-prod
+    tables:
+      - name: topup
+      - name: product_operator
+      - name: operator
+      - name: transaction
+      - name: product
+      - name: automatics
+      - name: historical_automatics
+
+      
+  - name: productos_tenpo
+    schema: productos_tenpo
+    database: tenpo-bi
+    tables:
+      - name: tenencia_productos_tenpo
+      - name: tenencia_camada_mes
+      - name: tenencia_camada_actividad_mes
+  
+  - name: churn
+    schema: churn
+    database: tenpo-bi
+    tables:
+      - name: tablon_daily_eventos_churn
+      - name: tablon_monthly_eventos_churn
+      - name: tablon_weekly_eventos_churn
+      - name: tablon_monthly_eventos_churn_bolsillo
+      - name: tablon_weekly_eventos_churn_bolsillo
+  
+  - name: active_buyers
+    schema: active_buyers
+    database: tenpo-bi-prod
+    tables:
+      - name: active_buyers_equation
+  
+  - name: diccionario_tickets_freshdesk
+    schema: external
+    database: tenpo-bi-prod
+    tables:
+      - name: diccionario_tickets_freshdesk
+    
+  - name: diccionario_media_source
+    schema: aux
+    database: tenpo-bi-prod
+    tables:
+      - name: channel_grouping_dbt
+    
+  - name: clevertap_audit
+    schema: clevertap_audit
+    database: tenpo-external
+    tables:
+      - name: clevertap_users
+        description: extrae todos los usuarios que existen en clevertap
+        identifier: clevertap_users_*
+  
+  - name: payment_cca
+    schema: payment_cca
+    database: tenpo-airflow-prod
+    tables:
+      - name: payment_transaction
+      - name: bank
+      - name: payment_request
+      - name: bank_account
+
+  - name: clevertap
+    schema: clevertap
+    database: tenpo-external
+    tables:
+      - name: events
+        tests:
+          - dbt_utils.recency:
+              enabled: false
+              datepart: day
+              field: date(fecha_hora)
+              interval: 1
+          - null_grouped_periods_threshold:
+              enabled: false
+              severity: warn
+              timelike_column: 'fecha_hora'
+              timelike_expression: 'date'
+              timelike_diff_function: 'date_diff'
+              timelike_part_diff: 'day'
+              timelike_min: '"2020-06-01"'
+              timelike_max: 'CURRENT_DATE()'
+              threshold_expression: '>=2'
+              group_column: 'event'
+              extra_where_expression: "event in ('App Uninstalled')"
+          - rolling_value_outside_percentile:
+              enabled: false
+              severity: warn
+              timelike_expression: "date(fecha_hora)"
+              value_expression: "count(distinct identity)"
+              lower_bound_percentile: 25
+              lower_bound_expression: 'GREATEST(lower_bound_percentile*0.5, 2500)'
+              upper_bound_percentile: 75
+              upper_bound_expression: 'upper_bound_percentile + 10*iqr'
+              timelike_min: "'2020-06-01'"
+              timelike_max: "CURRENT_DATE()"
+              extra_where_expression: "1=1"
+              min_samples: 25
+        loaded_at_field: fecha_hora
+        #freshness: # make this a little more strict
+        #warn_after: { count: 3, period: hour }
+        #error_after: { count: 24, period: hour }
+      - name: campaigns
+      - name: events_app_install
+      - name: trends
+  
+  - name: tablones_analisis
+    schema: tablones_analisis
+    database: tenpo-bi
+    tables:
+      - name: tablon_rfmp
+      - name: tablon_rfmp_v2
+      - name: tablon_monthly_vectores_usuarios
+      - name: tablon_weekly_vectores_usuarios
+
+  - name: identity
+    schema: identity
+    database: tenpo-private
+    tables:
+      - name: ruts
+
+  - name: presupuesto
+    schema: corporativo
+    database: tenpo-bi
+    tables:
+      - name: presupuesto_consolidado
+  
+  - name: backup
+    schema: backup
+    database: tenpo-datalake-prod
+    tables:
+      - name: backup_saldos_202106
+
+  - name: payment_savings
+    schema: payment_savings
+    database: tenpo-airflow-prod
+    tables:
+      - name: cash_in
+      - name: cash_out
+      - name: user_position
+      - name: fees
+      - name: holidays
+    
+
+  - name: tenpo_physical_card
+    schema: tenpo_physical_card
+    database: tenpo-airflow-prod
+    tables:
+      - name: card_order
+      - name: delivery_status
+      - name: address_region_commune
+      - name: delivery_history
+
+  - name: analytics_185654164
+    schema: analytics_185654164
+    database: "{{ env_var('DBT_PROJECT27', 'tenpo-datalake-sandbox') }}"
+    tables:
+      - name: events
+        identifier: events_*
+
+  - name: onboarding_savings
+    schema: onboarding_savings
+    database: tenpo-airflow-prod
+    tables:
+      - name: user_authorization
+      - name: users
+      - name: user_identity_validation
+      - name: user_pep
+      - name: user_onboarding
+      - name: user_risk_profile
+      - name: user_risk_profile_answer
+      - name: user_tax_residence
+  
+  - name: report_savings
+    schema: report_savings
+    database: tenpo-airflow-prod
+    tables:
+      - name: user_general_contract_signed
+      - name: user_us_person_document
+      - name: user_document_signed
+
+  - name: appsflyer
+    schema: appsflyer
+    database: tenpo-external
+    tables:
+      - name: in_app_events_android
+        description: registra todos los eventos que hace el usuario android en la aplicacion y ademas viene de paid
+        identifier: in_app_events_report_android_*
+  
+      - name: in_app_events_ios
+        description: registra todos los eventos que hace el usuario ios en la aplicacion y ademas viene de paid
+        identifier: in_app_events_report_ios_*
+
+      - name: organic_in_app_events_android
+        description: registra todos los eventos que hace el usuario android en la aplicacion y que vienen organicamente
+        identifier: organic_in_app_events_report_android_*
+
+      - name: organic_in_app_events_ios
+        description: registra todos los eventos que hace el usuario ios en la aplicacion y que vienen organicamente
+        identifier: organic_in_app_events_report_ios_*
+      
+      - name: installs_report_android
+        description: registra todos los eventos de instalación que realizan usuarios android
+        identifier: installs_report_android_*
+      
+      - name: installs_report_ios
+        description: registra todos los eventos de instalación que realizan usuarios ios
+        identifier: installs_report_ios_*
+
+  - name: appsflyer_v2
+    schema: appsflyer_v2
+    database: tenpo-external
+    tables:
+      - name: partners_daily_android
+        description: información de atribucion con costos en USD en android
+        identifier: partners_daily_android_USD_*
+  
+      - name: partners_daily_ios
+        description: información de atribucion con costos en USD en IOS
+        identifier: partners_daily_ios_USD_*
+
+      - name: ios_partners_daily_historico
+        description: informacion historica de atribucion en USD para IOS (antes de 2022)
+        identifier: ios_partners_daily_historico
+
+      - name: android_partners_daily_historico
+        description: informacion historica de atribucion en USD para android (antes de 2022)
+        identifier: android_partners_daily_historico
+
+  - name: freshdesk
+    schema: freshdesk
+    database: tenpo-it-analytics
+    tables:
+      - name: freshdesk
+        description: indica los tickets y sus estados asociados a un usuario
+        identifier: dataflow_freshdesk
+  
+  - name: freshdesk_external
+    schema: freshdesk
+    database: tenpo-external
+    tables:
+      - name: historia
+        description: historia
+        identifier: tickets_manual_20210221
+
+  - name: typeform
+    schema: typeform
+    database: tenpo-external
+    tables:
+      - name: typeform_item_answer
+        description: indica las respuestas asociadas a un formulario
+      - name: typeform_item
+
+  - name: pep
+    schema: pep
+    database: tenpo-private
+    tables:
+      - name: pep_user_id
+  
+  - name: payment_loyalty
+    schema: payment_loyalty
+    database: tenpo-airflow-prod
+    tables:
+      - name: referral_prom
+      - name: referral_user
+      - name: coupons
+      - name: campaign_type
+      - name: redeems
+      - name: campaigns
+  - name: transactions_history
+    schema: transactions_history
+    database: tenpo-airflow-prod
+    tables:
+      - name: transactions_history
+      - name: types
+
+  - name: firebase
+    schema: firebase
+    database: tenpo-bi
+    tables: 
+      - name: iyg 
+
+  - name: bolsillo
+    schema: savings
+    database: tenpo-datalake-prod
+    tables:
+      - name: daily_aum
+
+  - name: bq_audit_tenpo_airflow_prod
+    schema: bq_audit_tenpo_airflow_prod_2
+    database: tenpo-private
+    tables:
+      - name: cloudaudit_googleapis_com
+        identifier: cloudaudit_googleapis_com_*
+
+  - name: bq_audit_tenpo_bi
+    schema: bq_audit_tenpo_bi_2
+    database: tenpo-private
+    tables:
+      - name: cloudaudit_googleapis_com
+        identifier: cloudaudit_googleapis_com_*
+
+  - name: bq_audit_tenpo_bi_prod
+    schema: bq_audit_tenpo_bi_prod
+    database: tenpo-private
+    tables:
+      - name: cloudaudit_googleapis_com
+        identifier: cloudaudit_googleapis_com_*
+
+  - name: bq_audit_tenpo_datalake_prod
+    schema: bq_audit_tenpo_datalake_prod_2
+    database: tenpo-private
+    tables:
+      - name: cloudaudit_googleapis_com
+        identifier: cloudaudit_googleapis_com_*
+
+  - name: crossborder
+    schema: crossborder
+    database: tenpo-airflow-prod
+    tables:
+      - name: transaction  
+      - name: users  
+      - name: account  
+
+  - name: notifications
+    schema: notifications
+    database: tenpo-private
+    tables:
+      - name: notifications_history_v2  
+
+  - name: clevertap_bucket
+    schema: clevertap_bucket
+    database: tenpo-datalake-prod
+    tables:
+      - name: onfido  
+      
+  - name: tarjeta
+    schema: tarjeta
+    database: tenpo-bi
+    tables:
+      - name: activacion_tarjeta_monthly  
+      - name: activacion_tarjeta_weekly
+      - name: activacion_tarjeta_daily
+
+  - name: prepago
+    schema: prepago
+    database: tenpo-airflow-prod
+    tables:
+      - name: notifications_history
+        description: "Notificaciones de la aplicación"
+      - name: prp_cuenta
+        description: "Cuentas API Prepago Tenpo"
+        loaded_at_field: actualizacion
+        freshness: # make this a little more strict
+          warn_after: {count: 3, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: prp_usuario
+      - name: prp_tarjeta
+        loaded_at_field: fecha_actualizacion
+        freshness: # make this a little more strict
+          warn_after: {count: 3, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: prp_movimiento
+        loaded_at_field: fecha_actualizacion
+        freshness: # make this a little more strict
+          warn_after: {count: 3, period: hour}
+          error_after: {count: 24, period: hour}
+        columns:
+          - name: tipofac # required
+            description: Codigo de tipo de Factura Prepago.
+          - name: tipo_movimiento # required
+            description: Indica que tipo de movimiento es en texto.
+      - name: tipos_factura
+
+  - name: tenpo_utility_payment
+    schema: tenpo_utility_payment
+    database: tenpo-airflow-prod
+    tables:
+      - name: welcome
+      - name: bills
+      - name: categories
+      - name: utilities
+      - name: suggestions
+      - name: reminder_notifications
+      - name: automatics
+      - name: historical_automatics
+  
+  - name: transaction_verification
+    schema: transaction_verification
+    database: tenpo-airflow-prod
+    tables:
+      - name: dof
+      - name: notification
+      - name: transaction
+  
+  - name: payment_cca_batch
+    schema: payment_cca_batch
+    database: tenpo-airflow-prod
+    tables:
+      - name: file_management
+      - name: record_addendum
+      - name: record_addendum_out
+      - name: record_batch_header
+      - name: record_batch_header_out
+      - name: record_detail
+      - name: record_detail_out
+      - name: result_transaction
+
+  - name: ingestas_api
+    schema: ingestas_api
+    database: tenpo-datalake-prod
+    tables:
+      - name: cmf_api_dolar
+
+  - name: tyba_tenpo
+    schema: tyba_tenpo
+    database: "{{ env_var('DBT_PROJECT28', 'tenpo-datalake-sandbox') }}"
+    tables:
+      - name: ccam_movements
+      - name: ccam_pending_movements
+
+  - name: scrappers_sii
+    schema: sii
+    database: tenpo-datalake-prod
+    tables:
+      - name: nomina_pj
+      - name: stc_actividades
+      - name: stc_registro_consultas
+      - name: stc_timbraje_documentos
+
+  - name: drive_sheets
+    schema: drive_sheets
+    database: tenpo-datalake-prod
+    tables:
+      - name: saldos_paypal_tbl
+      - name: datos_tenpistas_tb
+    
+  - name: bancarization
+    schema: bancarization
+    database: tenpo-bi-prod
+    tables:
+      - name: bank_characterization
+
+  - name: piratas_growth_datamart
+    schema: external
+    database: tenpo-piratas-mart-prod
+    tables:
+      - name: prod_diccionario_appsflyer
+  
+  - name: nps
+    schema: app
+    database: tenpo-it-analytics
+    tables:
+      - name: flow_evaluations
+        description: evaluación de nps por flujo
+  
+  - name: clevertap_raw
+    schema: clevertap_raw
+    database: tenpo-datalake-prod
+    tables:
+      - name: clevertap_gold_external
+  
+  - name: accounts
+    schema: accounts
+    database: tenpo-airflow-prod
+    tables:
+      - name: accounts
+  
+  - name: accounts_contacts
+    schema: cca_tef_contacts
+    database: tenpo-airflow-prod
+    tables:
+      - name: account_contact
+  
+  - name: paypal_payments
+    schema: paypal_payments
+    database: tenpo-airflow-prod
+    tables:
+      - name: transactions
+  
+  - name: sac
+    schema: sac
+    database: tenpo-it-analytics
+    tables:
+      - name: lock_user
+
+  - name: tenpo_recarga_facil
+    schema: tenpo_recarga_facil
+    database: tenpo-airflow-prod
+    tables:
+      - name: transaction
+      - name: topup
+      - name: payment
+      - name: payment_method
+      - name: product_operator
+      - name: product
+      - name: operator
+
+  - name: insurance
+    schema: insurance
+    database: tenpo-airflow-prod
+    tables:
+      - name: balance_history
+      - name: beneficiary_history
+      - name: flyway_schema_history
+      - name: payment
+      - name: policy
+      - name: policy_information_history
+      - name: transaction
